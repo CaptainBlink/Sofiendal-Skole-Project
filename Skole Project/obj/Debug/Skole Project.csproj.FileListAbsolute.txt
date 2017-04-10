@@ -1,0 +1,20 @@
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\csc.exe
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\System.Collections.Immutable.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\System.Reflection.Metadata.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\vbc.exe
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\VBCSCompiler.exe
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\roslyn\VBCSCompiler.exe.config
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\Skole Project.dll.config
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\Skole Project.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\Skole Project.pdb
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\UCN\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.csprojResolveAssemblyReference.cache
+D:\UCN\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.dll
+D:\UCN\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.pdb
