@@ -33,7 +33,7 @@ namespace Skole_Project
             {
                 Skole_Project.DataBase.DataClasses1DataContext db = new DataBase.DataClasses1DataContext();
                 DataBase.User user = (from m in db.Users
-                                      where m.Username.ToLower() == eMail.ToLower() &&
+                                      where m.Name.ToLower() == eMail.ToLower() &&
                                       m.Password == passWord
                                       select m).SingleOrDefault();
                 if (user != null)
