@@ -30,12 +30,12 @@ namespace Skole_Project.DataBase
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertUserData(UserData instance);
     partial void UpdateUserData(UserData instance);
     partial void DeleteUserData(UserData instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -68,14 +68,6 @@ namespace Skole_Project.DataBase
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<UserData> UserDatas
 		{
 			get
@@ -83,191 +75,13 @@ namespace Skole_Project.DataBase
 				return this.GetTable<UserData>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private string _Password;
-		
-		private string _Class;
-		
-		private System.Nullable<bool> _Type;
-		
-		private EntitySet<UserData> _UserDatas;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnClassChanging(string value);
-    partial void OnClassChanged();
-    partial void OnTypeChanging(System.Nullable<bool> value);
-    partial void OnTypeChanged();
-    #endregion
-		
-		public User()
-		{
-			this._UserDatas = new EntitySet<UserData>(new Action<UserData>(this.attach_UserDatas), new Action<UserData>(this.detach_UserDatas));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
+		public System.Data.Linq.Table<User> Users
 		{
 			get
 			{
-				return this._ID;
+				return this.GetTable<User>();
 			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					this.OnClassChanging(value);
-					this.SendPropertyChanging();
-					this._Class = value;
-					this.SendPropertyChanged("Class");
-					this.OnClassChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Bit")]
-		public System.Nullable<bool> Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this.OnTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserData", Storage="_UserDatas", ThisKey="ID", OtherKey="UserID")]
-		public EntitySet<UserData> UserDatas
-		{
-			get
-			{
-				return this._UserDatas;
-			}
-			set
-			{
-				this._UserDatas.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_UserDatas(UserData entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_UserDatas(UserData entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
 		}
 	}
 	
@@ -285,11 +99,7 @@ namespace Skole_Project.DataBase
 		
 		private System.Nullable<System.DateTime> _Logout;
 		
-		private System.Nullable<bool> _Mandatory;
-		
 		private string _Homework;
-		
-		private EntityRef<User> _User;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -303,15 +113,12 @@ namespace Skole_Project.DataBase
     partial void OnLoginChanged();
     partial void OnLogoutChanging(System.Nullable<System.DateTime> value);
     partial void OnLogoutChanged();
-    partial void OnMandatoryChanging(System.Nullable<bool> value);
-    partial void OnMandatoryChanged();
     partial void OnHomeworkChanging(string value);
     partial void OnHomeworkChanged();
     #endregion
 		
 		public UserData()
 		{
-			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
 		
@@ -346,10 +153,6 @@ namespace Skole_Project.DataBase
 			{
 				if ((this._UserID != value))
 				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnUserIDChanging(value);
 					this.SendPropertyChanging();
 					this._UserID = value;
@@ -399,26 +202,6 @@ namespace Skole_Project.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mandatory", DbType="Bit")]
-		public System.Nullable<bool> Mandatory
-		{
-			get
-			{
-				return this._Mandatory;
-			}
-			set
-			{
-				if ((this._Mandatory != value))
-				{
-					this.OnMandatoryChanging(value);
-					this.SendPropertyChanging();
-					this._Mandatory = value;
-					this.SendPropertyChanged("Mandatory");
-					this.OnMandatoryChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Homework", DbType="VarChar(50)")]
 		public string Homework
 		{
@@ -439,36 +222,184 @@ namespace Skole_Project.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserData", Storage="_User", ThisKey="UserID", OtherKey="ID", IsForeignKey=true)]
-		public User User
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private string _Token;
+		
+		private string _Class;
+		
+		private System.Nullable<bool> _Mandatory;
+		
+		private System.Nullable<bool> _Type;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnTokenChanging(string value);
+    partial void OnTokenChanged();
+    partial void OnClassChanging(string value);
+    partial void OnClassChanged();
+    partial void OnMandatoryChanging(System.Nullable<bool> value);
+    partial void OnMandatoryChanged();
+    partial void OnTypeChanging(System.Nullable<bool> value);
+    partial void OnTypeChanged();
+    #endregion
+		
+		public User()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
 		{
 			get
 			{
-				return this._User.Entity;
+				return this._ID;
 			}
 			set
 			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
+				if ((this._ID != value))
 				{
+					this.OnIDChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.UserDatas.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.UserDatas.Add(this);
-						this._UserID = value.ID;
-					}
-					else
-					{
-						this._UserID = default(int);
-					}
-					this.SendPropertyChanged("User");
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Token
+		{
+			get
+			{
+				return this._Token;
+			}
+			set
+			{
+				if ((this._Token != value))
+				{
+					this.OnTokenChanging(value);
+					this.SendPropertyChanging();
+					this._Token = value;
+					this.SendPropertyChanged("Token");
+					this.OnTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Class
+		{
+			get
+			{
+				return this._Class;
+			}
+			set
+			{
+				if ((this._Class != value))
+				{
+					this.OnClassChanging(value);
+					this.SendPropertyChanging();
+					this._Class = value;
+					this.SendPropertyChanged("Class");
+					this.OnClassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mandatory", DbType="Bit")]
+		public System.Nullable<bool> Mandatory
+		{
+			get
+			{
+				return this._Mandatory;
+			}
+			set
+			{
+				if ((this._Mandatory != value))
+				{
+					this.OnMandatoryChanging(value);
+					this.SendPropertyChanging();
+					this._Mandatory = value;
+					this.SendPropertyChanged("Mandatory");
+					this.OnMandatoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Bit")]
+		public System.Nullable<bool> Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
 				}
 			}
 		}
