@@ -7,18 +7,23 @@
     <title></title>
     <meta name="google-signin-client_id" content="723117611476-pkeam5g28hnrgl4o1subnvho0mnp4rpj.apps.googleusercontent.com" />
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="Css/bootstrap.css" rel="stylesheet" />
     <style>
-        .hidden{
-            display:none;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
-<body>
+<body style="background-color:#e5e5e5;">
     <form id="form1" runat="server">
-        <div>
+        <div class="col-xs-4 col-xs-offset-4">
+            <h1 class="text-center">Welcome <br /> to <br /> Lesson Cafe</h1>
+            <br />
             <asp:HiddenField ID="Token" Value="" runat="server" />
             <asp:HiddenField ID="Name" Value="" runat="server" />
-            <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure"></div>
+            <div class="col-xs-4 col-xs-offset-4 text-center">
+                <div class="g-signin2" style="display: inline-block;" data-onsuccess="onSignIn" data-onfailure="onSignInFailure"></div>
+            </div>
             <asp:Button ID="Button1" CssClass="hidden" runat="server" OnClick="btnLogin_Click" Text="login" />
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             <script>
@@ -32,14 +37,14 @@
                     document.getElementById("Token").value = profile.getEmail();
                     document.getElementById("Name").value = profile.getName();
                     var xhr = new XMLHttpRequest();
-                    xhr.open('POST', 'http://localhost:6829/GoogleLogin.aspx?idtoken=' + id_token);
+                    xhr.open('POST', 'http://localhost:6829/GoogleLogin.aspx');
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhr.onload = function () {
                         console.log('Signed in as: ' + xhr.responseText);
                     };
                     xhr.send('idtoken=' + id_token);
                     document.getElementById('<%= Button1.ClientID %>').click();
-                }
+                        }
             </script>
         </div>
     </form>

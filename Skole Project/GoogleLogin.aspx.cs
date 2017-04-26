@@ -1,7 +1,9 @@
 ﻿using Skole_Project.DataBase;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Security;
 using System.Web.Services;
@@ -12,9 +14,20 @@ namespace Skole_Project
 {
     public partial class GoogleLogin : System.Web.UI.Page
     {
+        public string result;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            this.result = "";
+            if (Request.InputStream.Length > 0)
+            {
+                using (Stream receivedStream = Request.InputStream)
+                {
+                    using (StreamReader reader = new StreamReader(receivedStream, Encoding.UTF8))
+                    {
+                        result = reader.ReadLine();
+                    }
+                }
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
