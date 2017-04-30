@@ -7,22 +7,18 @@
     <link href="../Css/bootstrap.css" rel="stylesheet" />
     <title></title>
     <style>
-        .gridLines tr:not(:last-child) td{
-            border-bottom:none;
+        .gridLines tr td {
+            border-top: none;
+            border-color: #009999;
         }
 
-        .gridLines tr:last-child td {
-            border-bottom-color:#009999;
-
+        .test {
+            padding-left: 10px;
         }
 
-        .test{
-            padding-left:10px;
-        }
-
-        .labltest{
-            font-weight:bold;
-            text-align:left;
+        .labltest {
+            font-weight: bold;
+            text-align: left;
         }
     </style>
 </head>
@@ -41,24 +37,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px">
-                    <p class="text-center">
-                        Click the button
+                    <div style="border: solid 1px black; border-radius: 6px; border-color: #009999; display: grid;">
+                        <p class="text-center" style="margin-top: 10px">
+                            Click the button
                         <br />
-                        to
+                            to
                         <br />
-                        enter
+                            enter
                         <br />
-                        Lesson Cafe
-                    </p>
-                    <asp:Button CssClass="col-md-4 col-md-offset-4" ID="Button1" runat="server" Text="CheckIn" />
+                            Lesson Cafe
+                        </p>
+                        <asp:ScriptManager ID="ScriptManager1" runat="server">
+                        </asp:ScriptManager>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:Button ID="btnTime" runat="server" OnClick="GetTime" Text="Button" Style="display: none" />
+                                <asp:Button CssClass="col-md-4 col-md-offset-4" Enabled="false" Style="margin-bottom: 10px" OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
+                                <asp:Label CssClass="col-md-4 col-md-offset-4" ID="Label1" runat="server" Text=""></asp:Label>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
                 </div>
                 <br />
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px;">
                     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<%# "Subject: " + Eval("Subject") %>'></asp:Label>
-                            <br />
-                            <asp:Label runat="server" Text='<%# "Task: " + Eval("Homework") %>'></asp:Label>
+                            <div style="border: solid 1px black; border-radius: 6px; border-color: #009999;">
+                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# "Subject: " + Eval("Subject") %>'></asp:Label>
+                                <br />
+                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# "Task: " + Eval("Homework") %>'></asp:Label>
+                            </div>
                         </ItemTemplate>
                     </asp:Repeater>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework INNER JOIN Users ON Users.Class = Homework.Class WHERE (Users.ID = @HomeworkID)">
@@ -68,51 +76,51 @@
                     </asp:SqlDataSource>
                 </div>
                 <div class="col-lg-12" style="margin-bottom: 50px">
-                    <asp:GridView ID="GridView1" CssClass="gridLines" AutoGenerateColumns="false" DataSourceID="SqlDataSource1" Style="border-collapse: separate; border: #009999; border-spacing: 20px 0; border-bottom:none" Width="100%" CellSpacing="5" CellPadding="0" HorizontalAlign="Center" runat="server">
+                    <asp:GridView ID="GridView1" CssClass="gridLines" AutoGenerateColumns="false" DataSourceID="SqlDataSource1" Style="border-collapse: separate; border: #009999; border-spacing: 20px 0; border-bottom: none" Width="100%" CellSpacing="5" CellPadding="0" HorizontalAlign="Center" runat="server">
                         <Columns>
                             <asp:TemplateField HeaderText="Monday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label4" CssClass="labltest" runat="server" style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Monday").ToString(),";")[0] %>'></asp:Label>
+                                    <asp:Label ID="Label4" CssClass="labltest" runat="server" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Monday").ToString(),";")[0] %>'></asp:Label>
                                     <br />
                                     <asp:Label ID="Label5" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# ProcessMyDataItem(Regex.Split(Eval("Monday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
-                                <ItemStyle CssClass="test"/>
+                                <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Tuesday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label4" CssClass="labltest" runat="server" style='<%# ProcessMyDataItem1(Regex.Split(Eval("Tuesday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Tuesday").ToString(),";")[0] %>'></asp:Label>
+                                    <asp:Label ID="Label4" CssClass="labltest" runat="server" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Tuesday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Tuesday").ToString(),";")[0] %>'></asp:Label>
                                     <br />
                                     <asp:Label ID="Label5" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# ProcessMyDataItem(Regex.Split(Eval("Tuesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
-                                <ItemStyle CssClass="test"/>
+                                <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Wednesday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label6" CssClass="labltest" runat="server" style='<%# ProcessMyDataItem1(Regex.Split(Eval("Wednesday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Wednesday").ToString(),";")[0] %>'></asp:Label>
+                                    <asp:Label ID="Label6" CssClass="labltest" runat="server" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Wednesday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Wednesday").ToString(),";")[0] %>'></asp:Label>
                                     <br />
                                     <asp:Label ID="Label7" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# ProcessMyDataItem(Regex.Split(Eval("Wednesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
-                                <ItemStyle CssClass="test"/>
+                                <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Thursday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label8" CssClass="labltest" runat="server" style='<%# ProcessMyDataItem1(Regex.Split(Eval("Thursday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Thursday").ToString(),";")[0] %>'></asp:Label>
+                                    <asp:Label ID="Label8" CssClass="labltest" runat="server" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Thursday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Thursday").ToString(),";")[0] %>'></asp:Label>
                                     <br />
                                     <asp:Label ID="Label9" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# ProcessMyDataItem(Regex.Split(Eval("Thursday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
-                                <ItemStyle CssClass="test"/>
+                                <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Friday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label10" CssClass="labltest" runat="server" style='<%# ProcessMyDataItem1(Regex.Split(Eval("Friday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Friday").ToString(),";")[0] %>'></asp:Label>
+                                    <asp:Label ID="Label10" CssClass="labltest" runat="server" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Friday").ToString(),";")[0]) %>' ForeColor="#808080" Text='<%# Regex.Split(Eval("Friday").ToString(),";")[0] %>'></asp:Label>
                                     <br />
                                     <asp:Label ID="Label11" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# Regex.Split(Eval("Friday").ToString(),";")[1] %>'></asp:Label>
                                 </ItemTemplate>
-                                <ItemStyle CssClass="test"/>
+                                <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
                             </asp:TemplateField>
                         </Columns>
@@ -126,5 +134,19 @@
             </div>
         </div>
     </form>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("<%=btnTime.ClientID %>").click();
+            var todayHour = new Date().getHours();
+            var todayMin = new Date().getMinutes();
+            var todayCafe = new Date().getDay();
+            if ((todayCafe == 7 & todayHour < 18) || (todayCafe == 2 & todayHour < 2)) {
+                setInterval(function () {
+
+                    document.getElementById("<%=btnTime.ClientID %>").click();
+                }, 1000);
+            }
+        };
+    </script>
 </body>
 </html>

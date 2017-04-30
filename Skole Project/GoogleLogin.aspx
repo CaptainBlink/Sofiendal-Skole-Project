@@ -37,7 +37,7 @@
                     document.getElementById("Token").value = profile.getEmail();
                     document.getElementById("Name").value = profile.getName();
                     var xhr = new XMLHttpRequest();
-                    xhr.open('POST', 'http://localhost:6829/GoogleLogin.aspx');
+                    xhr.open('POST', 'http://brage.ucn.dk/1028717/GoogleLogin.aspx');
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhr.onload = function () {
                         console.log('Signed in as: ' + xhr.responseText);
