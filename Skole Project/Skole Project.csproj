@@ -222,10 +222,13 @@
   <ItemGroup>
     <Content Include="Css\bootstrap-theme.css" />
     <Content Include="Css\bootstrap-theme.min.css" />
+    <Content Include="Css\featherlight.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GoogleLogin.aspx" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\featherlight.js" />
+    <Content Include="js\jquery.min.js" />
     <Content Include="js\npm.js" />
     <Content Include="packages.config" />
     <Content Include="DataBase\DataClasses1.dbml">

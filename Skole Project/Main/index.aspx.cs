@@ -11,12 +11,13 @@ namespace Skole_Project
 {
     public partial class index : System.Web.UI.Page
     {
-        TimeSpan startTime = new TimeSpan(17, 0, 0);
-        TimeSpan endTime = new TimeSpan(18, 0, 0);
+        DataClasses1DataContext db = new DataClasses1DataContext();
+        TimeSpan startTime = new TimeSpan(2, 0, 0);
+        TimeSpan endTime = new TimeSpan(4, 0, 0);
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataClasses1DataContext db = new DataClasses1DataContext();
+           
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
             //if (user.Type != false)
             //{
@@ -29,11 +30,19 @@ namespace Skole_Project
 
         protected void GetTime(object sender, EventArgs e)
         {
-            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime)
+            User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
+            var checkExisting = (from c in db.UserDatas where c.Logout.Value.Date.Equals(DateTime.Now.Date) & c.UserID.Equals(user.ID) select c.Login).FirstOrDefault();
+
+            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting == null)
             {
                 btnCafe.Enabled = true;
                 btnCafe.Attributes["style"] = "background-color: green; margin-bottom:10px;";
             }
+            else
+            {
+                btnCafe.Enabled = false;
+            }
+
         }
 
         public string ProcessMyDataItem1(object LunchBreak)
@@ -64,7 +73,7 @@ namespace Skole_Project
 
         protected void btnCafe_Click(object sender, EventArgs e)
         {
-            DataClasses1DataContext db = new DataClasses1DataContext();
+            
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
             UserData userData = (from c in db.UserDatas where c.UserID.Equals(user.ID) select c).FirstOrDefault();
             if (btnCafe.Text == "CheckIn")
@@ -79,23 +88,41 @@ namespace Skole_Project
                     db.SubmitChanges();
                     btnCafe.Text = "CheckOut";
                     btnCafe.Attributes["style"] = "background-color: red;";
+                    //btnCafe.Attributes["data-featherlight"] = "#HomeworkList";
+                    //btnCafe.Attributes["data-featherlight-close-on-click"] = "false";
                 }
                 else
                 {
-                    Label1.Text = "You already registered for Lesson Cafe";
+                    btnCafe.Text = "CheckOut";
+                    btnCafe.Attributes["style"] = "background-color: red;";
+                    //btnCafe.Attributes["data-featherlight"] = "#HomeworkList";
+                    //btnCafe.Attributes["data-featherlight-close-on-click"] = "false";
+                    //Label1.Text = "You already registered for Lesson Cafe";
                 }
 
             }
 
             else
             {
-                UserData userDataLogOut = (from c in db.UserDatas where c.Login.Value.Date.Equals(DateTime.Now.Date) & c.UserID.Equals(user.ID) select c).FirstOrDefault();
-                UserData newUserData = new UserData();
-                userDataLogOut.Logout = DateTime.Now;
-                db.SubmitChanges();
-                btnCafe.Text = "CheckIn";
-                btnCafe.Attributes["style"] = "background-color: Green;";
+                gus.Attributes["style"] = "display:block;";
+
             }
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            var list = CheckBoxHomework.Items.Cast<ListItem>().Where(item => item.Selected == true).Select(item => item.Value);
+            var result = string.Join(",", list);           
+            User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
+            UserData userDataLogOut = (from c in db.UserDatas where c.Login.Value.Date.Equals(DateTime.Now.Date) & c.UserID.Equals(user.ID) select c).FirstOrDefault();
+            userDataLogOut.Logout = DateTime.Now;
+            userDataLogOut.Homework = result;
+            db.SubmitChanges();
+            CheckBoxHomework.ClearSelection();
+            gus.Attributes["style"] = "display:none;";
+            btnCafe.Text = "CheckIn";
+            btnCafe.Enabled = false;
+            btnCafe.Attributes["style"] = "background-color: Green;";
         }
     }
 }

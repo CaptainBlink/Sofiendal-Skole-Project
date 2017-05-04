@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="../Css/bootstrap.css" rel="stylesheet" />
+    <link href="../Css/featherlight.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
     <title></title>
     <style>
         .gridLines tr td {
@@ -52,8 +54,24 @@
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 <asp:Button ID="btnTime" runat="server" OnClick="GetTime" Text="Button" Style="display: none" />
-                                <asp:Button CssClass="col-md-4 col-md-offset-4" Enabled="false" Style="margin-bottom: 10px" OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
+                                <asp:Button CssClass="col-md-4 col-md-offset-4" Enabled="false" Style="margin-bottom: 10px"  OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
                                 <asp:Label CssClass="col-md-4 col-md-offset-4" ID="Label1" runat="server" Text=""></asp:Label>
+                                <asp:Button ID="btnTestList" Style="display: none" runat="server" OnClick="btnSubmit_Click" Text="test" />
+                                <div id="gus" runat="server" class="featherlight">
+                                    <div id="HomeworkList" class="featherlight-content">
+                                        <button class="featherlight-close-icon featherlight-close" aria-label="Close">✕</button>
+                                        <div class="featherlight-inner">
+                                            <asp:CheckBoxList ID="CheckBoxHomework" runat="server">
+                                                <asp:ListItem Text="Math" Value="Math"></asp:ListItem>
+                                                <asp:ListItem Text="Danish" Value="Danish"></asp:ListItem>
+                                                <asp:ListItem Text="Biology" Value="Biology"></asp:ListItem>
+                                                <asp:ListItem Text="English" Value="English"></asp:ListItem>
+                                                <asp:ListItem Text="History" Value="History"></asp:ListItem>
+                                            </asp:CheckBoxList>
+                                            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+                                        </div>
+                                    </div>
+                                </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
