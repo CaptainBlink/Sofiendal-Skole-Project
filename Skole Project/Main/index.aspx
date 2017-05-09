@@ -85,6 +85,14 @@
                 </div>
                 <br />
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px;">
+                    <div>
+                        <div id="menu" onClick="menuShow();">
+                            Click
+                        </div>
+                        <div id="menu_element" style="display:none;">
+                            <asp:Label ID="Label2" runat="server" Text="Monday"></asp:Label>
+                        </div>
+                    </div>
                     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
                         <ItemTemplate>
                             <div style="border: solid 1px black; border-radius: 6px; border-color: #009999;">
@@ -159,6 +167,20 @@
             </div>
         </div>
     </form>
+    <script>
+        function menuShow() {
+            display = document.getElementById("menu_element").style.display;
+            if (display == "" || display == "none") {
+                document.getElementById("menu_element").style.display = "block";
+                document.getElementById("menu_element").style.animationName = "menu_animate";
+                document.getElementById("menu_element").style.animationDuration = "1s";
+            } else if (display == "block") {
+                document.getElementById("menu_element").style.display = "none";
+                document.getElementById("menu_element").style.animationName = "menu_animate_reverse";
+                document.getElementById("menu_element").style.animationDuration = "1s";
+            }
+        }
+    </script>
     <script type="text/javascript">
         window.onload = function () {
             document.getElementById("<%=btnTime.ClientID %>").click();
