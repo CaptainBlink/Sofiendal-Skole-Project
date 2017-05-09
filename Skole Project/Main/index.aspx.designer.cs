@@ -22,6 +22,24 @@ namespace Skole_Project {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Logout;
+        
+        /// <summary>
+        /// imgPicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgPicture;
+        
+        /// <summary>
         /// welcome control.
         /// </summary>
         /// <remarks>
@@ -31,13 +49,13 @@ namespace Skole_Project {
         protected global::System.Web.UI.WebControls.Label welcome;
         
         /// <summary>
-        /// Logout control.
+        /// class control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Logout;
+        protected global::System.Web.UI.WebControls.Label @class;
         
         /// <summary>
         /// ScriptManager1 control.

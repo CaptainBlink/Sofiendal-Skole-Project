@@ -56,3 +56,61 @@ D:\UCN\Sofiendal-Skole-Project\Skole Project\bin\Zlib.Portable.xml
 D:\UCN\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.csprojResolveAssemblyReference.cache
 D:\UCN\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.dll
 D:\UCN\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.pdb
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Skole Project.dll.config
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Skole Project.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Skole Project.pdb
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\EntityFramework.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\EntityFramework.SqlServer.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.Mvc4.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.PlatformServices.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Core.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.PlatformServices.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.Options.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.Primitives.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.WebEncoders.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Net.Http.Headers.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Newtonsoft.Json.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\System.Buffers.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\System.Text.Encodings.Web.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Zlib.Portable.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\EntityFramework.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\EntityFramework.SqlServer.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.pdb
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.pdb
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.Mvc4.pdb
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.Mvc4.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.PlatformServices.pdb
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Auth.PlatformServices.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Core.pdb
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.Core.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.PlatformServices.pdb
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Google.Apis.PlatformServices.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.Options.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.Primitives.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Extensions.WebEncoders.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Microsoft.Net.Http.Headers.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Newtonsoft.Json.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\System.Text.Encodings.Web.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\bin\Zlib.Portable.xml
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.csprojResolveAssemblyReference.cache
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.dll
+D:\Skole Project\Sofiendal-Skole-Project\Skole Project\obj\Debug\Skole Project.pdb

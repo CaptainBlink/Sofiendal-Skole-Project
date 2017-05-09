@@ -25,7 +25,9 @@ namespace Skole_Project
             //}
             SqlDataSource1.SelectParameters["ScheduleID"].DefaultValue = user.ID.ToString();
             SqlDataSource2.SelectParameters["HomeworkID"].DefaultValue = user.ID.ToString();
-            welcome.Text = "Welcome," + user.Name;
+            welcome.Text = user.Name.ToUpper();
+            imgPicture.ImageUrl = user.Picture;
+            @class.Text = "6." + "\n" + user.Class;
         }
 
         protected void GetTime(object sender, EventArgs e)

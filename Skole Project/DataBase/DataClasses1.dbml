@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="pwe0916_1028717" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=kraka.ucn.dk;Initial Catalog=pwe0916_1028717;User ID=pwe0916_1028717" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="pwe0916_1028717ConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Users" Member="Users">
-    <Type Name="User">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Token" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Class" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Mandatory" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Type" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="User_UserData" Member="UserDatas" ThisKey="ID" OtherKey="UserID" Type="UserData" />
-    </Type>
-  </Table>
   <Table Name="dbo.UserData" Member="UserDatas">
     <Type Name="UserData">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -47,6 +36,18 @@
       <Column Name="Time" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Class" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Subject" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Token" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Class" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mandatory" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Type" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Picture" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="User_UserData" Member="UserDatas" ThisKey="ID" OtherKey="UserID" Type="UserData" />
     </Type>
   </Table>
 </Database>
