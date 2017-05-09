@@ -28,7 +28,6 @@
     <form id="form1" runat="server">
         <div>
             <div style="float: left">
-                <asp:Label ID="welcome" runat="server" Text=""></asp:Label>
             </div>
             <div style="float: right">
                 <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" />
@@ -38,6 +37,14 @@
         <br />
         <div class="container">
             <div class="row">
+                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px">
+                    <asp:Image ID="imgPicture" Style="border-radius: 50%; float: left;" runat="server" />
+                    <div style="margin-top:30px; margin-left:110px;">
+                        <asp:Label ID="welcome" runat="server" Text="" Font-Size="large"></asp:Label>
+                        <br />
+                        <asp:Label ID="class" runat="server" Text="" Font-Bold="True"></asp:Label>
+                    </div>
+                </div>
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px">
                     <div style="border: solid 1px black; border-radius: 6px; border-color: #009999; display: grid;">
                         <p class="text-center" style="margin-top: 10px">
@@ -54,7 +61,7 @@
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 <asp:Button ID="btnTime" runat="server" OnClick="GetTime" Text="Button" Style="display: none" />
-                                <asp:Button CssClass="col-md-4 col-md-offset-4" Enabled="false" Style="margin-bottom: 10px"  OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
+                                <asp:Button CssClass="col-md-4 col-md-offset-4" Enabled="false" Style="margin-bottom: 10px" OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
                                 <asp:Label CssClass="col-md-4 col-md-offset-4" ID="Label1" runat="server" Text=""></asp:Label>
                                 <asp:Button ID="btnTestList" Style="display: none" runat="server" OnClick="btnSubmit_Click" Text="test" />
                                 <div id="gus" runat="server" class="featherlight">

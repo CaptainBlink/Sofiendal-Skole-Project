@@ -30,15 +30,15 @@ namespace Skole_Project.DataBase
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertUserData(UserData instance);
     partial void UpdateUserData(UserData instance);
     partial void DeleteUserData(UserData instance);
     partial void InsertScheduleTest(ScheduleTest instance);
     partial void UpdateScheduleTest(ScheduleTest instance);
     partial void DeleteScheduleTest(ScheduleTest instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -69,14 +69,6 @@ namespace Skole_Project.DataBase
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
 		}
 		
 		public System.Data.Linq.Table<UserData> UserDatas
@@ -110,215 +102,13 @@ namespace Skole_Project.DataBase
 				return this.GetTable<ScheduleTest>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private string _Token;
-		
-		private string _Class;
-		
-		private System.Nullable<bool> _Mandatory;
-		
-		private System.Nullable<bool> _Type;
-		
-		private EntitySet<UserData> _UserDatas;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnTokenChanging(string value);
-    partial void OnTokenChanged();
-    partial void OnClassChanging(string value);
-    partial void OnClassChanged();
-    partial void OnMandatoryChanging(System.Nullable<bool> value);
-    partial void OnMandatoryChanged();
-    partial void OnTypeChanging(System.Nullable<bool> value);
-    partial void OnTypeChanged();
-    #endregion
-		
-		public User()
-		{
-			this._UserDatas = new EntitySet<UserData>(new Action<UserData>(this.attach_UserDatas), new Action<UserData>(this.detach_UserDatas));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
+		public System.Data.Linq.Table<User> Users
 		{
 			get
 			{
-				return this._ID;
+				return this.GetTable<User>();
 			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Token
-		{
-			get
-			{
-				return this._Token;
-			}
-			set
-			{
-				if ((this._Token != value))
-				{
-					this.OnTokenChanging(value);
-					this.SendPropertyChanging();
-					this._Token = value;
-					this.SendPropertyChanged("Token");
-					this.OnTokenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					this.OnClassChanging(value);
-					this.SendPropertyChanging();
-					this._Class = value;
-					this.SendPropertyChanged("Class");
-					this.OnClassChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mandatory", DbType="Bit")]
-		public System.Nullable<bool> Mandatory
-		{
-			get
-			{
-				return this._Mandatory;
-			}
-			set
-			{
-				if ((this._Mandatory != value))
-				{
-					this.OnMandatoryChanging(value);
-					this.SendPropertyChanging();
-					this._Mandatory = value;
-					this.SendPropertyChanged("Mandatory");
-					this.OnMandatoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Bit")]
-		public System.Nullable<bool> Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this.OnTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserData", Storage="_UserDatas", ThisKey="ID", OtherKey="UserID")]
-		public EntitySet<UserData> UserDatas
-		{
-			get
-			{
-				return this._UserDatas;
-			}
-			set
-			{
-				this._UserDatas.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_UserDatas(UserData entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_UserDatas(UserData entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
 		}
 	}
 	
@@ -892,6 +682,240 @@ namespace Skole_Project.DataBase
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private string _Token;
+		
+		private string _Class;
+		
+		private System.Nullable<bool> _Mandatory;
+		
+		private System.Nullable<bool> _Type;
+		
+		private string _Picture;
+		
+		private EntitySet<UserData> _UserDatas;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnTokenChanging(string value);
+    partial void OnTokenChanged();
+    partial void OnClassChanging(string value);
+    partial void OnClassChanged();
+    partial void OnMandatoryChanging(System.Nullable<bool> value);
+    partial void OnMandatoryChanged();
+    partial void OnTypeChanging(System.Nullable<bool> value);
+    partial void OnTypeChanged();
+    partial void OnPictureChanging(string value);
+    partial void OnPictureChanged();
+    #endregion
+		
+		public User()
+		{
+			this._UserDatas = new EntitySet<UserData>(new Action<UserData>(this.attach_UserDatas), new Action<UserData>(this.detach_UserDatas));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Token
+		{
+			get
+			{
+				return this._Token;
+			}
+			set
+			{
+				if ((this._Token != value))
+				{
+					this.OnTokenChanging(value);
+					this.SendPropertyChanging();
+					this._Token = value;
+					this.SendPropertyChanged("Token");
+					this.OnTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Class
+		{
+			get
+			{
+				return this._Class;
+			}
+			set
+			{
+				if ((this._Class != value))
+				{
+					this.OnClassChanging(value);
+					this.SendPropertyChanging();
+					this._Class = value;
+					this.SendPropertyChanged("Class");
+					this.OnClassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mandatory", DbType="Bit")]
+		public System.Nullable<bool> Mandatory
+		{
+			get
+			{
+				return this._Mandatory;
+			}
+			set
+			{
+				if ((this._Mandatory != value))
+				{
+					this.OnMandatoryChanging(value);
+					this.SendPropertyChanging();
+					this._Mandatory = value;
+					this.SendPropertyChanged("Mandatory");
+					this.OnMandatoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Bit")]
+		public System.Nullable<bool> Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", DbType="VarChar(MAX)")]
+		public string Picture
+		{
+			get
+			{
+				return this._Picture;
+			}
+			set
+			{
+				if ((this._Picture != value))
+				{
+					this.OnPictureChanging(value);
+					this.SendPropertyChanging();
+					this._Picture = value;
+					this.SendPropertyChanged("Picture");
+					this.OnPictureChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserData", Storage="_UserDatas", ThisKey="ID", OtherKey="UserID")]
+		public EntitySet<UserData> UserDatas
+		{
+			get
+			{
+				return this._UserDatas;
+			}
+			set
+			{
+				this._UserDatas.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_UserDatas(UserData entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_UserDatas(UserData entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 }

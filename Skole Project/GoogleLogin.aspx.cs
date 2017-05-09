@@ -50,6 +50,11 @@ namespace Skole_Project
                 User user = (from m in db.Users where m.Token.Contains(Token.Value) select m).SingleOrDefault();
                 if (user != null)
                 {
+                    if(user.Picture != Picture.Value)
+                    {
+                        user.Picture = Picture.Value;
+                        db.SubmitChanges();
+                    }
                     return true;
                 }
                 else
@@ -61,6 +66,7 @@ namespace Skole_Project
                     User newUser = new User();
                     newUser.Name = Name.Value;
                     newUser.Token = Token.Value;
+                    newUser.Picture = Picture.Value;
                     newUser.Class = "A";
                     newUser.Mandatory = false;
                     newUser.Type = false;

@@ -21,6 +21,7 @@
             <br />
             <asp:HiddenField ID="Token" Value="" runat="server" />
             <asp:HiddenField ID="Name" Value="" runat="server" />
+            <asp:HiddenField ID="Picture" runat="server" />
             <div class="col-xs-4 col-xs-offset-4 text-center">
                 <div class="g-signin2" style="display: inline-block;" data-onsuccess="onSignIn" data-onfailure="onSignInFailure"></div>
             </div>
@@ -36,6 +37,7 @@
                     var id_token = googleUser.getAuthResponse().id_token;
                     document.getElementById("Token").value = profile.getEmail();
                     document.getElementById("Name").value = profile.getName();
+                    document.getElementById("Picture").value = profile.getImageUrl();
                     var xhr = new XMLHttpRequest();
                     xhr.open('POST', 'http://brage.ucn.dk/1028717/GoogleLogin.aspx');
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
