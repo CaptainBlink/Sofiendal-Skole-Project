@@ -27,7 +27,7 @@ namespace Skole_Project
             SqlDataSource2.SelectParameters["HomeworkID"].DefaultValue = user.ID.ToString();
             welcome.Text = user.Name.ToUpper();
             imgPicture.ImageUrl = user.Picture;
-            @class.Text = "6." + "\n" + user.Class;
+            @class.Text = "6." + "\n" + user.Class + "kurchec";
         }
 
         protected void GetTime(object sender, EventArgs e)
