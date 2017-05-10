@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px">
                     <asp:Image ID="imgPicture" Style="border-radius: 50%; float: left;" runat="server" />
-                    <div style="margin-top:30px; margin-left:110px;">
+                    <div style="margin-top: 30px; margin-left: 110px;">
                         <asp:Label ID="welcome" runat="server" Text="" Font-Size="large"></asp:Label>
                         <br />
                         <asp:Label ID="class" runat="server" Text="" Font-Bold="True"></asp:Label>
@@ -85,28 +85,31 @@
                 </div>
                 <br />
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px;">
-                    <div>
-                        <div id="menu" onClick="menuShow();">
-                            Click
+                    <div style="border: solid 1px #009999;">
+                        <div id="menu" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow();">
+                            <asp:Label ID="Label2" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="MONDAY"></asp:Label>
+                            <img id="arrow" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
+                            <asp:Label ID="Label3" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text="08/05"></asp:Label>
+
                         </div>
-                        <div id="menu_element" style="display:none;">
-                            <asp:Label ID="Label2" runat="server" Text="Monday"></asp:Label>
+                        <div id="menu_element" style="display: none;">
+                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
+                                <ItemTemplate>
+                                    <div>
+                                        <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                        <br />
+                                        <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework INNER JOIN Users ON Users.Class = Homework.Class WHERE (Users.ID = @HomeworkID)">
+                                <SelectParameters>
+                                    <asp:Parameter Name="HomeworkID" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </div>
                     </div>
-                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
-                        <ItemTemplate>
-                            <div style="border: solid 1px black; border-radius: 6px; border-color: #009999;">
-                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# "Subject: " + Eval("Subject") %>'></asp:Label>
-                                <br />
-                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# "Task: " + Eval("Homework") %>'></asp:Label>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework INNER JOIN Users ON Users.Class = Homework.Class WHERE (Users.ID = @HomeworkID)">
-                        <SelectParameters>
-                            <asp:Parameter Name="HomeworkID" Type="String" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
+
                 </div>
                 <div class="col-lg-12" style="margin-bottom: 50px">
                     <asp:GridView ID="GridView1" CssClass="gridLines" AutoGenerateColumns="false" DataSourceID="SqlDataSource1" Style="border-collapse: separate; border: #009999; border-spacing: 20px 0; border-bottom: none" Width="100%" CellSpacing="5" CellPadding="0" HorizontalAlign="Center" runat="server">
@@ -174,10 +177,12 @@
                 document.getElementById("menu_element").style.display = "block";
                 document.getElementById("menu_element").style.animationName = "menu_animate";
                 document.getElementById("menu_element").style.animationDuration = "1s";
+                document.getElementById("arrow").setAttribute('src', '../img/uparrow.png');
             } else if (display == "block") {
                 document.getElementById("menu_element").style.display = "none";
                 document.getElementById("menu_element").style.animationName = "menu_animate_reverse";
                 document.getElementById("menu_element").style.animationDuration = "1s";
+                document.getElementById("arrow").setAttribute('src', '../img/downarrow.png');
             }
         }
     </script>
