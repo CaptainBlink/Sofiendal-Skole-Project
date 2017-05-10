@@ -37,7 +37,7 @@
         <br />
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px">
+                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 30px">
                     <asp:Image ID="imgPicture" Style="border-radius: 50%; float: left;" runat="server" />
                     <div style="margin-top: 30px; margin-left: 110px;">
                         <asp:Label ID="welcome" runat="server" Text="" Font-Size="large"></asp:Label>
@@ -45,7 +45,7 @@
                         <asp:Label ID="class" runat="server" Text="" Font-Bold="True"></asp:Label>
                     </div>
                 </div>
-                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px">
+                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 30px">
                     <div style="border: solid 1px black; border-radius: 6px; border-color: #009999; display: grid;">
                         <p class="text-center" style="margin-top: 10px">
                             Click the button
@@ -83,16 +83,14 @@
                         </asp:UpdatePanel>
                     </div>
                 </div>
-                <br />
-                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px;">
-                    <div style="border: solid 1px #009999;">
-                        <div id="menu" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow();">
-                            <asp:Label ID="Label2" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="MONDAY"></asp:Label>
-                            <img id="arrow" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
-                            <asp:Label ID="Label3" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text="08/05"></asp:Label>
-
+                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 30px;">
+                    <div style="border: solid 1px #009999; margin-bottom: 10px;">
+                        <div id="menu1" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow1();">
+                            <asp:Label ID="day1" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="MONDAY"></asp:Label>
+                            <img id="arrow1" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
+                            <asp:Label ID="date1" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text="08/05"></asp:Label>
                         </div>
-                        <div id="menu_element" style="display: none;">
+                        <div id="menu_element1" style="display: none;">
                             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
                                 <ItemTemplate>
                                     <div>
@@ -109,7 +107,62 @@
                             </asp:SqlDataSource>
                         </div>
                     </div>
-
+                    <div style="border: solid 1px #009999; margin-bottom: 10px;">
+                        <div id="menu2" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow2();">
+                            <asp:Label ID="day2" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="TUESDAY"></asp:Label>
+                            <img id="arrow2" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
+                            <asp:Label ID="date2" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text="09/05"></asp:Label>
+                        </div>
+                        <div id="menu_element2" style="display: none;">
+                            <div>
+                                <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                <br />
+                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: solid 1px #009999; margin-bottom: 10px;">
+                        <div id="menu3" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow3();">
+                            <asp:Label ID="day3" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="WEDNESDAY"></asp:Label>
+                            <img id="arrow3" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
+                            <asp:Label ID="date3" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text="10/05"></asp:Label>
+                        </div>
+                        <div id="menu_element3" style="display: none;">
+                            <div>
+                                <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                <br />
+                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: solid 1px #009999; margin-bottom: 10px;">
+                        <div id="menu4" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow4();">
+                            <asp:Label ID="day4" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="THURSDAY"></asp:Label>
+                            <img id="arrow4" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
+                            <asp:Label ID="date4" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text="11/05"></asp:Label>
+                        </div>
+                        <div id="menu_element4" style="display: none;">
+                            <div>
+                                <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                <br />
+                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: solid 1px #009999;">
+                        <div id="menu5" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow5();">
+                            <asp:Label ID="day5" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="FRIDAY"></asp:Label>
+                            <img id="arrow5" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
+                            <asp:Label ID="date5" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text="12/05"></asp:Label>
+                        </div>
+                        <div id="menu_element5" style="display: none;">
+                            <div>
+                                <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                <br />
+                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-12" style="margin-bottom: 50px">
                     <asp:GridView ID="GridView1" CssClass="gridLines" AutoGenerateColumns="false" DataSourceID="SqlDataSource1" Style="border-collapse: separate; border: #009999; border-spacing: 20px 0; border-bottom: none" Width="100%" CellSpacing="5" CellPadding="0" HorizontalAlign="Center" runat="server">
@@ -121,7 +174,7 @@
                                     <asp:Label ID="Label5" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# ProcessMyDataItem(Regex.Split(Eval("Monday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Tuesday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
@@ -130,7 +183,7 @@
                                     <asp:Label ID="Label5" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# ProcessMyDataItem(Regex.Split(Eval("Tuesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Wednesday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
@@ -139,7 +192,7 @@
                                     <asp:Label ID="Label7" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# ProcessMyDataItem(Regex.Split(Eval("Wednesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Thursday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
@@ -148,7 +201,7 @@
                                     <asp:Label ID="Label9" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# ProcessMyDataItem(Regex.Split(Eval("Thursday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Friday" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
@@ -157,7 +210,7 @@
                                     <asp:Label ID="Label11" runat="server" Font-Size="X-Large" ForeColor="#808080" Text='<%# Regex.Split(Eval("Friday").ToString(),";")[1] %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="#009999"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
@@ -171,18 +224,74 @@
         </div>
     </form>
     <script>
-        function menuShow() {
-            display = document.getElementById("menu_element").style.display;
+        function menuShow1() {
+            display = document.getElementById("menu_element1").style.display;
             if (display == "" || display == "none") {
-                document.getElementById("menu_element").style.display = "block";
-                document.getElementById("menu_element").style.animationName = "menu_animate";
-                document.getElementById("menu_element").style.animationDuration = "1s";
-                document.getElementById("arrow").setAttribute('src', '../img/uparrow.png');
+                document.getElementById("menu_element1").style.display = "block";
+                document.getElementById("menu_element1").style.animationName = "menu_animate";
+                document.getElementById("menu_element1").style.animationDuration = "1s";
+                document.getElementById("arrow1").setAttribute('src', '../img/uparrow.png');
             } else if (display == "block") {
-                document.getElementById("menu_element").style.display = "none";
-                document.getElementById("menu_element").style.animationName = "menu_animate_reverse";
-                document.getElementById("menu_element").style.animationDuration = "1s";
-                document.getElementById("arrow").setAttribute('src', '../img/downarrow.png');
+                document.getElementById("menu_element1").style.display = "none";
+                document.getElementById("menu_element1").style.animationName = "menu_animate_reverse";
+                document.getElementById("menu_element1").style.animationDuration = "1s";
+                document.getElementById("arrow1").setAttribute('src', '../img/downarrow.png');
+            }
+        }
+        function menuShow2() {
+            display = document.getElementById("menu_element2").style.display;
+            if (display == "" || display == "none") {
+                document.getElementById("menu_element2").style.display = "block";
+                document.getElementById("menu_element2").style.animationName = "menu_animate";
+                document.getElementById("menu_element2").style.animationDuration = "1s";
+                document.getElementById("arrow2").setAttribute('src', '../img/uparrow.png');
+            } else if (display == "block") {
+                document.getElementById("menu_element2").style.display = "none";
+                document.getElementById("menu_element2").style.animationName = "menu_animate_reverse";
+                document.getElementById("menu_element2").style.animationDuration = "1s";
+                document.getElementById("arrow2").setAttribute('src', '../img/downarrow.png');
+            }
+        }
+        function menuShow3() {
+            display = document.getElementById("menu_element3").style.display;
+            if (display == "" || display == "none") {
+                document.getElementById("menu_element3").style.display = "block";
+                document.getElementById("menu_element3").style.animationName = "menu_animate";
+                document.getElementById("menu_element3").style.animationDuration = "1s";
+                document.getElementById("arrow3").setAttribute('src', '../img/uparrow.png');
+            } else if (display == "block") {
+                document.getElementById("menu_element3").style.display = "none";
+                document.getElementById("menu_element3").style.animationName = "menu_animate_reverse";
+                document.getElementById("menu_element3").style.animationDuration = "1s";
+                document.getElementById("arrow3").setAttribute('src', '../img/downarrow.png');
+            }
+        }
+        function menuShow4() {
+            display = document.getElementById("menu_element4").style.display;
+            if (display == "" || display == "none") {
+                document.getElementById("menu_element4").style.display = "block";
+                document.getElementById("menu_element4").style.animationName = "menu_animate";
+                document.getElementById("menu_element4").style.animationDuration = "1s";
+                document.getElementById("arrow4").setAttribute('src', '../img/uparrow.png');
+            } else if (display == "block") {
+                document.getElementById("menu_element4").style.display = "none";
+                document.getElementById("menu_element4").style.animationName = "menu_animate_reverse";
+                document.getElementById("menu_element4").style.animationDuration = "1s";
+                document.getElementById("arrow4").setAttribute('src', '../img/downarrow.png');
+            }
+        }
+        function menuShow5() {
+            display = document.getElementById("menu_element5").style.display;
+            if (display == "" || display == "none") {
+                document.getElementById("menu_element5").style.display = "block";
+                document.getElementById("menu_element5").style.animationName = "menu_animate";
+                document.getElementById("menu_element5").style.animationDuration = "1s";
+                document.getElementById("arrow5").setAttribute('src', '../img/uparrow.png');
+            } else if (display == "block") {
+                document.getElementById("menu_element5").style.display = "none";
+                document.getElementById("menu_element5").style.animationName = "menu_animate_reverse";
+                document.getElementById("menu_element5").style.animationDuration = "1s";
+                document.getElementById("arrow5").setAttribute('src', '../img/downarrow.png');
             }
         }
     </script>
