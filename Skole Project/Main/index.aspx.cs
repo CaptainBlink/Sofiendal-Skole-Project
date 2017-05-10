@@ -19,6 +19,7 @@ namespace Skole_Project
         {
            
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
+            Homework homework = (from c in db.Homeworks where c.Class.Equals(user.Class) select c).FirstOrDefault();
             //if (user.Type != false)
             //{
             //    Response.Redirect("~/Teacher/Statistics.aspx");
@@ -28,6 +29,55 @@ namespace Skole_Project
             welcome.Text = user.Name.ToUpper();
             imgPicture.ImageUrl = user.Picture;
             @class.Text = "6." + "\n" + user.Class;
+
+            var checkExisting = (from c in db.UserDatas where c.Login.Value.Date.Equals(DateTime.Now.Date) select c.Login).FirstOrDefault();
+            var checkExisting2 = (from c in db.UserDatas where c.Logout.Value.Date.Equals(DateTime.Now.Date) select c.Logout).FirstOrDefault();
+            if (checkExisting != null)
+            {
+                btnCafe.Text = "CheckOut";
+                btnCafe.Attributes["style"] = "background-color: #F44336; margin-bottom:10px;";
+            }
+            if(checkExisting != null && checkExisting2 != null)
+            {
+                btnCafe.Text = "CheckIn";
+                btnCafe.Attributes["style"] = "background-color: none; margin-bottom:10px;";
+            }
+
+            DateTime today = DateTime.Today;
+            int currentDayOfWeek = (int)today.DayOfWeek;
+            DateTime sunday = today.AddDays(-currentDayOfWeek);
+            DateTime monday = sunday.AddDays(1);
+            // If we started on Sunday, we should actually have gone *back*
+            // 6 days instead of forward 1...
+            if (currentDayOfWeek == 0)
+            {
+                monday = monday.AddDays(-7);
+            }
+            var dates = Enumerable.Range(0, 5).Select(days => monday.AddDays(days)).ToList();
+            string[] split1 = dates.ElementAt(0).ToString("dd/MM/yyyy").Split('/');
+            date1.Text = split1[0] + "/" + split1[1];
+            string[] split2 = dates.ElementAt(1).ToString("dd/MM/yyyy").Split('/');
+            date2.Text = split2[0] + "/" + split2[1];
+            string[] split3 = dates.ElementAt(2).ToString("dd/MM/yyyy").Split('/');
+            date3.Text = split3[0] + "/" + split3[1];
+            string[] split4 = dates.ElementAt(3).ToString("dd/MM/yyyy").Split('/');
+            date4.Text = split4[0] + "/" + split4[1];
+            string[] split5 = dates.ElementAt(4).ToString("dd/MM/yyyy").Split('/');
+            date5.Text = split5[0] + "/" + split5[1];
+
+            var attendance = (from c in db.UserDatas where c.UserID.Equals(user.ID) select c);
+            int att = attendance.Count();
+            lblattendance.Text = "Jeg har deltaget i lektiecafén" + "\n" + "<b>" + att + "</b>" + "\n" + "gange denne måned.";
+            SqlDataSource2.SelectParameters["HomeworkDate"].DefaultValue = date1.Text + "/" + "2017";
+            SqlDataSource2.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource3.SelectParameters["HomeworkDate"].DefaultValue = date2.Text + "/" + "2017";
+            SqlDataSource3.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource4.SelectParameters["HomeworkDate"].DefaultValue = date3.Text + "/" + "2017";
+            SqlDataSource4.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource5.SelectParameters["HomeworkDate"].DefaultValue = date4.Text + "/" + "2017";
+            SqlDataSource5.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource6.SelectParameters["HomeworkDate"].DefaultValue = date5.Text + "/" + "2017";
+            SqlDataSource6.SelectParameters["UserClass"].DefaultValue = user.Class;
         }
 
         protected void GetTime(object sender, EventArgs e)
