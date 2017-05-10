@@ -24,49 +24,10 @@ namespace Skole_Project
             //    Response.Redirect("~/Teacher/Statistics.aspx");
             //}
             SqlDataSource1.SelectParameters["ScheduleID"].DefaultValue = user.ID.ToString();
-            SqlDataSource2.SelectParameters["HomeworkID"].DefaultValue = user.ID.ToString();
+            
             welcome.Text = user.Name.ToUpper();
             imgPicture.ImageUrl = user.Picture;
             @class.Text = "6." + "\n" + user.Class;
-
-            var checkExisting = (from c in db.UserDatas where c.Login.Value.Date.Equals(DateTime.Now.Date) select c.Login).FirstOrDefault();
-            var checkExisting2 = (from c in db.UserDatas where c.Logout.Value.Date.Equals(DateTime.Now.Date) select c.Logout).FirstOrDefault();
-            if (checkExisting != null)
-            {
-                btnCafe.Text = "CheckOut";
-                btnCafe.Attributes["style"] = "background-color: #F44336; margin-bottom:10px;";
-            }
-            if(checkExisting != null && checkExisting2 != null)
-            {
-                btnCafe.Text = "CheckIn";
-                btnCafe.Attributes["style"] = "background-color: none; margin-bottom:10px;";
-            }
-
-            DateTime today = DateTime.Today;
-            int currentDayOfWeek = (int)today.DayOfWeek;
-            DateTime sunday = today.AddDays(-currentDayOfWeek);
-            DateTime monday = sunday.AddDays(1);
-            // If we started on Sunday, we should actually have gone *back*
-            // 6 days instead of forward 1...
-            if (currentDayOfWeek == 0)
-            {
-                monday = monday.AddDays(-7);
-            }
-            var dates = Enumerable.Range(0, 5).Select(days => monday.AddDays(days)).ToList();
-            string[] split1 = dates.ElementAt(0).ToString().Split('/');
-            date1.Text = split1[0] + "/" + split1[1];
-            string[] split2 = dates.ElementAt(1).ToString().Split('/');
-            date2.Text = split2[0] + "/" + split2[1];
-            string[] split3 = dates.ElementAt(2).ToString().Split('/');
-            date3.Text = split3[0] + "/" + split3[1];
-            string[] split4 = dates.ElementAt(3).ToString().Split('/');
-            date4.Text = split4[0] + "/" + split4[1];
-            string[] split5 = dates.ElementAt(4).ToString().Split('/');
-            date5.Text = split5[0] + "/" + split5[1];
-
-            var attendance = (from c in db.UserDatas where c.UserID.Equals(user.ID) select c);
-            int att = attendance.Count();
-            lblattendance.Text = "Jeg har deltaget i lektiecafén" + "\n" + "<b>" + att + "</b>" + "\n" + "gange denne måned.";
         }
 
         protected void GetTime(object sender, EventArgs e)
@@ -113,7 +74,7 @@ namespace Skole_Project
         protected void Logout_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            Response.Redirect("https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:6829/GoogleLogin.aspx");
+            Response.Redirect("https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://brage.ucn.dk/1028717/GoogleLogin.aspx");
         }
 
         protected void btnCafe_Click(object sender, EventArgs e)

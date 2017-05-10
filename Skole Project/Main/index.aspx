@@ -113,13 +113,13 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 30px;">
-                    <div style="border: solid 1px #009999; margin-bottom: 10px;">
-                        <div id="menu1" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow1();">
+                    <div style="margin-bottom: 10px;">
+                        <div id="menu1" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow1();">
                             <asp:Label ID="day1" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="MANDAG"></asp:Label>
                             <img id="arrow1" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
                             <asp:Label ID="date1" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text=""></asp:Label>
                         </div>
-                        <div id="menu_element1" style="display: none;">
+                        <div id="menu_element1" style="display: none; box-shadow: 0 0 1px 0px gray, 0px 0px 0 0 gray;">
                             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
                                 <ItemTemplate>
                                     <div>
@@ -129,67 +129,108 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework INNER JOIN Users ON Users.Class = Homework.Class WHERE (Users.ID = @HomeworkID)">
+                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
-                                    <asp:Parameter Name="HomeworkID" Type="String" />
+                                    <asp:Parameter Name="HomeworkDate" Type="DateTime" />
+                                    <asp:Parameter Name="UserClass" Type="String" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
                     </div>
-                    <div style="border: solid 1px #009999; margin-bottom: 10px;">
-                        <div id="menu2" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow2();">
+                    <div style="margin-bottom: 10px;">
+                        <div id="menu2" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow2();">
                             <asp:Label ID="day2" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="TIRSDAG"></asp:Label>
                             <img id="arrow2" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
                             <asp:Label ID="date2" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text=""></asp:Label>
                         </div>
-                        <div id="menu_element2" style="display: none;">
-                            <div>
-                                <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
-                                <br />
-                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
-                            </div>
+                        <div id="menu_element2" style="display: none; box-shadow: 0 0 1px 0px gray, 0px 0px 0 0 gray;">
+                            <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource3">
+                                <ItemTemplate>
+                                    <div>
+                                        <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                        <br />
+                                        <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
+                                <SelectParameters>
+                                    <asp:Parameter Name="HomeworkDate" Type="DateTime" />
+                                    <asp:Parameter Name="UserClass" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </div>
                     </div>
-                    <div style="border: solid 1px #009999; margin-bottom: 10px;">
-                        <div id="menu3" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow3();">
+                    <div style="margin-bottom: 10px;">
+                        <div id="menu3" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow3();">
                             <asp:Label ID="day3" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="ONSDAG"></asp:Label>
                             <img id="arrow3" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
                             <asp:Label ID="date3" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text=""></asp:Label>
                         </div>
-                        <div id="menu_element3" style="display: none;">
-                            <div>
-                                <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
-                                <br />
-                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
-                            </div>
+                        <div id="menu_element3" style="display: none; box-shadow: 0 0 1px 0px gray, 0px 0px 0 0 gray;">
+                            <asp:Repeater ID="Repeater3" runat="server" DataSourceID="SqlDataSource4">
+                                <ItemTemplate>
+                                    <div>
+                                        <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                        <br />
+                                        <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
+                                <SelectParameters>
+                                    <asp:Parameter Name="HomeworkDate" Type="DateTime" />
+                                    <asp:Parameter Name="UserClass" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </div>
                     </div>
-                    <div style="border: solid 1px #009999; margin-bottom: 10px;">
-                        <div id="menu4" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow4();">
+                    <div style="margin-bottom: 10px;">
+                        <div id="menu4" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow4();">
                             <asp:Label ID="day4" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="TORSDAG"></asp:Label>
                             <img id="arrow4" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
                             <asp:Label ID="date4" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text=""></asp:Label>
                         </div>
-                        <div id="menu_element4" style="display: none;">
-                            <div>
-                                <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
-                                <br />
-                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
-                            </div>
+                        <div id="menu_element4" style="display: none; box-shadow: 0 0 1px 0px gray, 0px 0px 0 0 gray;">
+                            <asp:Repeater ID="Repeater4" runat="server" DataSourceID="SqlDataSource5">
+                                <ItemTemplate>
+                                    <div>
+                                        <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                        <br />
+                                        <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
+                                <SelectParameters>
+                                    <asp:Parameter Name="HomeworkDate" Type="DateTime" />
+                                    <asp:Parameter Name="UserClass" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </div>
                     </div>
-                    <div style="border: solid 1px #009999;">
-                        <div id="menu5" style="border-bottom: solid 1px #009999; height: 50px; background-color: gray; color: white;" onclick="menuShow5();">
+                    <div>
+                        <div id="menu5" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow5();">
                             <asp:Label ID="day5" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="FREDAG"></asp:Label>
                             <img id="arrow5" src="../img/downarrow.png" style="height: 20px; color: white; float: right; clear: right; position: relative; margin-right: 15px; margin-top: 16px;" />
                             <asp:Label ID="date5" runat="server" Style="margin-left: 10px; float: left; clear: left; position: relative; font-size: small;" Text=""></asp:Label>
                         </div>
-                        <div id="menu_element5" style="display: none;">
-                            <div>
-                                <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
-                                <br />
-                                <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
-                            </div>
+                        <div id="menu_element5" style="display: none; box-shadow: 0 0 1px 0px gray, 0px 0px 0 0 gray;">
+                            <asp:Repeater ID="Repeater5" runat="server" DataSourceID="SqlDataSource6">
+                                <ItemTemplate>
+                                    <div>
+                                        <asp:Label runat="server" Style="margin-left: 10px; font-weight: 600; font-size: larger;" Text='<%# Eval("Subject").ToString().ToUpper() %>'></asp:Label>
+                                        <br />
+                                        <asp:Label runat="server" Style="margin-left: 10px" Text='<%# Eval("Homework") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
+                                <SelectParameters>
+                                    <asp:Parameter Name="HomeworkDate" Type="DateTime" />
+                                    <asp:Parameter Name="UserClass" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </div>
                     </div>
                 </div>
