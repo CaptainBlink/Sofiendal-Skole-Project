@@ -52,6 +52,13 @@
             border: none;
             box-shadow: 0 2px 2px darkgray;
         }
+        
+        .btnHomework {
+            text-align: center;
+            border-radius: 2px;
+            border: none;
+            box-shadow: 0 2px 2px darkgray;
+        }
     </style>
 </head>
 <body style="font-family: 'Roboto', sans-serif !important;">
@@ -93,18 +100,18 @@
                                 <asp:Button ID="btnTestList" Style="display: none" runat="server" OnClick="btnSubmit_Click" Text="test" />
                                 <div id="gus" runat="server" class="featherlight">
                                     <div id="HomeworkList" class="featherlight-content">
-                                        <button class="featherlight-close-icon featherlight-close" aria-label="Close">✕</button>
+                                        <asp:Button ID="X" class="featherlight-close-icon featherlight-close" runat="server" OnClick="btnCancel_Click" Text="X" aria-label="Close" />
                                         <div class="featherlight-inner">
-                                            <asp:CheckBoxList ID="CheckBoxHomework" CssClass="col-md-offset-3" runat="server">
-                                                <asp:ListItem Text="Math" Value="Math"></asp:ListItem>
-                                                <asp:ListItem Text="Danish" Value="Danish"></asp:ListItem>
-                                                <asp:ListItem Text="Biology" Value="Biology"></asp:ListItem>
-                                                <asp:ListItem Text="English" Value="English"></asp:ListItem>
-                                                <asp:ListItem Text="History" Value="History"></asp:ListItem>
+                                            <asp:CheckBoxList ID="CheckBoxHomework" CssClass="col-md-offset-1" runat="server">
+                                                <asp:ListItem Text="Matematik" Value="Matematik"></asp:ListItem>
+                                                <asp:ListItem Text="Dansk" Value="Dansk"></asp:ListItem>
+                                                <asp:ListItem Text="Kristendom" Value="Kristendom"></asp:ListItem>
+                                                <asp:ListItem Text="Engelsk" Value="Engelsk"></asp:ListItem>
+                                                <asp:ListItem Text="Værkstedsfag" Value="Værkstedsfag"></asp:ListItem>
                                             </asp:CheckBoxList>
                                             <asp:CustomValidator ID="CustomValidator1" Style="display: none; width: 130px; text-align: center;" ErrorMessage="Please select at least one item." ForeColor="Red" ClientValidationFunction="ValidateCheckBoxList" runat="server" ValidationGroup="Subjects" />
-                                            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" ValidationGroup="Subjects" />
-                                            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
+                                            <asp:Button ID="btnSubmit" BackColor="#549788" ForeColor="White" CssClass="btnHomework" runat="server" OnClick="btnSubmit_Click" Text="Submit" ValidationGroup="Subjects" />
+                                            <asp:Button ID="btnCancel" BackColor="#F44336" ForeColor="White" CssClass="btnHomework" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
                                         </div>
                                     </div>
                                 </div>
@@ -390,7 +397,7 @@
             var todayHour = new Date().getHours();
             var todayMin = new Date().getMinutes();
             var todayCafe = new Date().getDay();
-            if ((todayCafe == 3 & todayHour < 24) || (todayCafe == 2 & todayHour < 24)) {
+            if ((todayCafe == 4 & todayHour < 24) || (todayCafe == 3 & todayHour < 24)) {
                 setInterval(function () {
                     if (document.getElementById('<%=btnCafe.ClientID%>').disabled == true) {
                         document.getElementById("<%=btnTime.ClientID %>").click();
