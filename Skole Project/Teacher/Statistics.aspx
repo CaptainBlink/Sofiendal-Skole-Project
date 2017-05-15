@@ -158,12 +158,12 @@
             </div>
         </div>
     </form>
-   <%-- <script type="text/javascript">
+    <script type="text/javascript">
         window.onload = function () {
             setInterval(function () {
                 document.getElementById("<%=btnTime.ClientID %>").click();
             }, 1000);
         };
-    </script>--%>
+    </script>
 </body>
 </html>
