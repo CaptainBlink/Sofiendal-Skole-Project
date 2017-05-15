@@ -56,13 +56,18 @@
 </head>
 <body style="font-family: 'Roboto', sans-serif !important;">
     <form id="form1" runat="server">
-        <div>
-            <div style="float: right">
-                <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Logout_Click" />
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <ul class="nav navbar-nav" style="float:none">
+                    <li style="float:right">
+                        <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" />
+                    </li>
+                </ul>
             </div>
-        </div>
-        <br />
-        <br />
+        </nav>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 30px">

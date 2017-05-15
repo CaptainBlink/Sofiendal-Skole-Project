@@ -228,6 +228,9 @@
     <Content Include="img\active.png" />
     <Content Include="img\downarrow.png" />
     <Content Include="img\inactve.png" />
+    <Content Include="img\left.png" />
+    <Content Include="img\Logo.png" />
+    <Content Include="img\right.png" />
     <Content Include="img\uparrow.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />

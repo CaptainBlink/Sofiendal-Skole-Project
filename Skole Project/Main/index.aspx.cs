@@ -43,64 +43,112 @@ namespace Skole_Project
                 btnCafe.Attributes["style"] = "background-color: none; margin-bottom:10px;";
             }
 
-            //DateTime today = DateTime.Today;
-            //int currentDayOfWeek = (int)today.DayOfWeek;
-            //DateTime sunday = today.AddDays(-currentDayOfWeek);
-            //DateTime monday = sunday.AddDays(1);
-            //// If we started on Sunday, we should actually have gone *back*
-            //// 6 days instead of forward 1...
-            //if (currentDayOfWeek == 0)
-            //{
-            //    monday = monday.AddDays(-7);
-            //}
-            //var dates = Enumerable.Range(0, 5).Select(days => monday.AddDays(days)).ToList();
-            //string[] split1 = dates.ElementAt(0).ToString("dd/MM/yyyy").Split('/');
-            //string[] split2 = dates.ElementAt(1).ToString("dd/MM/yyyy").Split('/');
-            //string[] split3 = dates.ElementAt(2).ToString("dd/MM/yyyy").Split('/');
-            //string[] split4 = dates.ElementAt(3).ToString("dd/MM/yyyy").Split('/');
-            //string[] split5 = dates.ElementAt(4).ToString("dd/MM/yyyy").Split('/');
+            DateTime today = DateTime.Today;
+            int currentDayOfWeek = (int)today.DayOfWeek;
+            DateTime lastsunday = today.AddDays(-(currentDayOfWeek + 7));
+            DateTime lastmonday = lastsunday.AddDays(1);
+            DateTime sunday = today.AddDays(-currentDayOfWeek);
+            DateTime monday = sunday.AddDays(1);
+            DateTime nextsunday = today.AddDays(-(currentDayOfWeek - 7));
+            DateTime nextmonday = nextsunday.AddDays(1);
 
-            //date1.Text = split1[0] + "/" + split1[1];
+            // If we started on Sunday, we should actually have gone *back*
+            // 6 days instead of forward 1...
+            if (currentDayOfWeek == 0)
+            {
+                monday = monday.AddDays(-7);
 
-            //date2.Text = split2[0] + "/" + split2[1];
+            }
+            var lastweek = Enumerable.Range(0, 5).Select(days => lastmonday.AddDays(days)).ToList();
+            var thisweek = Enumerable.Range(0, 5).Select(days => monday.AddDays(days)).ToList();
+            var nextweek = Enumerable.Range(0, 5).Select(days => nextmonday.AddDays(days)).ToList();
 
-            //date3.Text = split3[0] + "/" + split3[1];
+            //last week
 
-            //date4.Text = split4[0] + "/" + split4[1];
+            date1.Text = lastweek.ElementAt(0).ToString("dd/MM");
 
-            //date5.Text = split5[0] + "/" + split5[1];
+            date2.Text = lastweek.ElementAt(1).ToString("dd/MM");
 
-            date1.Text = "08-05";
+            date3.Text = lastweek.ElementAt(2).ToString("dd/MM");
 
-            date2.Text = "09-05";
+            date4.Text = lastweek.ElementAt(3).ToString("dd/MM");
 
-            date3.Text = "10-05";
+            date5.Text = lastweek.ElementAt(4).ToString("dd/MM");
 
-            date4.Text = "11-05";
+            //this week
 
-            date5.Text = "12-05";
+            date6.Text = thisweek.ElementAt(0).ToString("dd/MM");
+
+            date7.Text = thisweek.ElementAt(1).ToString("dd/MM");
+
+            date8.Text = thisweek.ElementAt(2).ToString("dd/MM");
+
+            date9.Text = thisweek.ElementAt(3).ToString("dd/MM");
+
+            date10.Text = thisweek.ElementAt(4).ToString("dd/MM");
+
+            //next week
+
+            date11.Text = nextweek.ElementAt(0).ToString("dd/MM");
+
+            date12.Text = nextweek.ElementAt(1).ToString("dd/MM");
+
+            date13.Text = nextweek.ElementAt(2).ToString("dd/MM");
+
+            date14.Text = nextweek.ElementAt(3).ToString("dd/MM");
+
+            date15.Text = nextweek.ElementAt(4).ToString("dd/MM");
+
 
             var attendance = (from c in db.UserDatas where c.UserID.Equals(user.ID) select c);
             int att = attendance.Count();
             lblattendance.Text = "Jeg har deltaget i lektiecafén" + "\n" + "<b>" + att + "</b>" + "\n" + "gange denne måned.";
-            SqlDataSource2.SelectParameters["HomeworkDate"].DefaultValue = "2017" + "-" + date1.Text;
+
+            //last week
+
+            SqlDataSource2.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(0).ToString("yyyy-MM-dd");
             SqlDataSource2.SelectParameters["UserClass"].DefaultValue = user.Class;
-            SqlDataSource3.SelectParameters["HomeworkDate"].DefaultValue = "2017" + "-" + date2.Text;
+            SqlDataSource3.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(1).ToString("yyyy-MM-dd");
             SqlDataSource3.SelectParameters["UserClass"].DefaultValue = user.Class;
-            SqlDataSource4.SelectParameters["HomeworkDate"].DefaultValue = "2017" + "-" + date3.Text;
+            SqlDataSource4.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(2).ToString("yyyy-MM-dd");
             SqlDataSource4.SelectParameters["UserClass"].DefaultValue = user.Class;
-            SqlDataSource5.SelectParameters["HomeworkDate"].DefaultValue = "2017" + "-" + date4.Text;
+            SqlDataSource5.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(3).ToString("yyyy-MM-dd");
             SqlDataSource5.SelectParameters["UserClass"].DefaultValue = user.Class;
-            SqlDataSource6.SelectParameters["HomeworkDate"].DefaultValue = "2017" + "-" + date5.Text;
+            SqlDataSource6.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(4).ToString("yyyy-MM-dd");
             SqlDataSource6.SelectParameters["UserClass"].DefaultValue = user.Class;
+
+            //this week
+
+            SqlDataSource7.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(0).ToString("yyyy-MM-dd");
+            SqlDataSource7.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource8.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(1).ToString("yyyy-MM-dd");
+            SqlDataSource8.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource9.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(2).ToString("yyyy-MM-dd");
+            SqlDataSource9.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource10.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(3).ToString("yyyy-MM-dd");
+            SqlDataSource10.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource11.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(4).ToString("yyyy-MM-dd");
+            SqlDataSource11.SelectParameters["UserClass"].DefaultValue = user.Class;
+
+            //next week
+
+            SqlDataSource12.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(0).ToString("yyyy-MM-dd");
+            SqlDataSource12.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource13.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(1).ToString("yyyy-MM-dd");
+            SqlDataSource13.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource14.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(2).ToString("yyyy-MM-dd");
+            SqlDataSource14.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource15.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(3).ToString("yyyy-MM-dd");
+            SqlDataSource15.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource16.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(4).ToString("yyyy-MM-dd");
+            SqlDataSource16.SelectParameters["UserClass"].DefaultValue = user.Class;
         }
 
         protected void GetTime(object sender, EventArgs e)
         {
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
             var checkExisting = (from c in db.UserDatas where c.Logout.Value.Date.Equals(DateTime.Now.Date) & c.UserID.Equals(user.ID) select c.Login).FirstOrDefault();
-            int Today = Convert.ToInt32(DateTime.Today.DayOfWeek);
-            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting == null && (Today == 1 || Today == 2))
+            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting == null && (Convert.ToInt32(DateTime.Today.DayOfWeek) == 1 || Convert.ToInt32(DateTime.Today.DayOfWeek) == 2))
             {
                 if(btnCafe.Text != "CheckOut")
                 {
