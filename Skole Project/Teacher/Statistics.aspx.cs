@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Skole_Project.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,15 +12,19 @@ namespace Skole_Project.Teacher
 {
     public partial class Statistics : System.Web.UI.Page
     {
+        DataClasses1DataContext db = new DataBase.DataClasses1DataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataBase.DataClasses1DataContext db = new DataBase.DataClasses1DataContext();
-            DataBase.User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
-            welcome.InnerText = "Welcome," + user.Name;
+
+            User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
+          
             if (user.Type != true)
             {
                 Response.Redirect("~/GoogleLogin.aspx");
             }
+
+            welcome.Text = user.Name.ToUpper();
+            imgPicture.ImageUrl = user.Picture;
 
         }
 
@@ -29,6 +34,18 @@ namespace Skole_Project.Teacher
             FormsAuthentication.SignOut();
             Response.Redirect("https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:6829/GoogleLogin.aspx");
 
+        }
+
+        protected string GetImageUrl(object input)
+        {
+            if (Convert.ToBoolean(input) == true)
+            {
+                return "../img/active.png";
+            }
+            else
+            {
+                return "../img/inactve.png";
+            }
         }
 
 
@@ -85,6 +102,11 @@ namespace Skole_Project.Teacher
             }
 
             return myValue.ToString();
+        }
+
+        protected void btnTime_Click(object sender, EventArgs e)
+        {
+            GridView1.DataBind();
         }
     }
 }

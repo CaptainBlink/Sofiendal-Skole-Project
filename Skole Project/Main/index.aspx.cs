@@ -156,6 +156,7 @@ namespace Skole_Project
                     UserData newUserData = new UserData();
                     newUserData.UserID = user.ID;
                     newUserData.Login = DateTime.Now;
+                    user.Active = true;
                     db.UserDatas.InsertOnSubmit(newUserData);
                     db.SubmitChanges();
                     btnCafe.Text = "CheckOut";
@@ -189,6 +190,7 @@ namespace Skole_Project
             UserData userDataLogOut = (from c in db.UserDatas where c.Login.Value.Date.Equals(DateTime.Now.Date) & c.UserID.Equals(user.ID) select c).FirstOrDefault();
             userDataLogOut.Logout = DateTime.Now;
             userDataLogOut.Homework = result;
+            user.Active = false;
             db.SubmitChanges();
             CheckBoxHomework.ClearSelection();
             gus.Attributes["style"] = "display:none;";

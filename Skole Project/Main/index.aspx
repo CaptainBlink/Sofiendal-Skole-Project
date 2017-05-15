@@ -64,8 +64,6 @@
 <body style="font-family: 'Roboto', sans-serif !important;">
     <form id="form1" runat="server">
         <div>
-            <div style="float: left">
-            </div>
             <div style="float: right">
                 <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" />
             </div>

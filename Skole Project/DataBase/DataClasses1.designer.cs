@@ -95,19 +95,19 @@ namespace Skole_Project.DataBase
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Homework> Homeworks
 		{
 			get
 			{
 				return this.GetTable<Homework>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -604,6 +604,105 @@ namespace Skole_Project.DataBase
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Homework")]
+	public partial class Homework
+	{
+		
+		private int _ID;
+		
+		private string _Homework1;
+		
+		private string _Class;
+		
+		private string _Subject;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		public Homework()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Homework", Storage="_Homework1", DbType="VarChar(MAX)")]
+		public string Homework1
+		{
+			get
+			{
+				return this._Homework1;
+			}
+			set
+			{
+				if ((this._Homework1 != value))
+				{
+					this._Homework1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="VarChar(50)")]
+		public string Class
+		{
+			get
+			{
+				return this._Class;
+			}
+			set
+			{
+				if ((this._Class != value))
+				{
+					this._Class = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subject", DbType="VarChar(50)")]
+		public string Subject
+		{
+			get
+			{
+				return this._Subject;
+			}
+			set
+			{
+				if ((this._Subject != value))
+				{
+					this._Subject = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -623,6 +722,8 @@ namespace Skole_Project.DataBase
 		private System.Nullable<bool> _Type;
 		
 		private string _Picture;
+		
+		private System.Nullable<bool> _Active;
 		
 		private EntitySet<UserData> _UserDatas;
 		
@@ -644,6 +745,8 @@ namespace Skole_Project.DataBase
     partial void OnTypeChanged();
     partial void OnPictureChanging(string value);
     partial void OnPictureChanged();
+    partial void OnActiveChanging(System.Nullable<bool> value);
+    partial void OnActiveChanged();
     #endregion
 		
 		public User()
@@ -792,6 +895,26 @@ namespace Skole_Project.DataBase
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
+		public System.Nullable<bool> Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserData", Storage="_UserDatas", ThisKey="ID", OtherKey="UserID")]
 		public EntitySet<UserData> UserDatas
 		{
@@ -835,105 +958,6 @@ namespace Skole_Project.DataBase
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Homework")]
-	public partial class Homework
-	{
-		
-		private int _ID;
-		
-		private string _Homework1;
-		
-		private string _Class;
-		
-		private string _Subject;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		public Homework()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Homework", Storage="_Homework1", DbType="VarChar(MAX)")]
-		public string Homework1
-		{
-			get
-			{
-				return this._Homework1;
-			}
-			set
-			{
-				if ((this._Homework1 != value))
-				{
-					this._Homework1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="VarChar(50)")]
-		public string Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					this._Class = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subject", DbType="VarChar(50)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
-			}
 		}
 	}
 }
