@@ -41,6 +41,8 @@ namespace Skole_Project
             {
                 btnCafe.Text = "CheckIn";
                 btnCafe.Attributes["style"] = "background-color: none; margin-bottom:10px;";
+                user.Active = false;
+                db.SubmitChanges();
             }
 
             DateTime today = DateTime.Today;

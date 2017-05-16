@@ -103,7 +103,7 @@
                                 <asp:Button ID="btnTestList" Style="display: none" runat="server" OnClick="btnSubmit_Click" Text="test" />
                                 <div id="gus" runat="server" class="featherlight">
                                     <div id="HomeworkList" class="featherlight-content">
-                                        <asp:Button ID="X" class="featherlight-close-icon featherlight-close" runat="server" OnClick="btnCancel_Click" Text="X" aria-label="Close" />
+                                        <asp:Button ID="X" CssClass="featherlight-close-icon featherlight-close" runat="server" OnClick="btnCancel_Click" Text="X" />
                                         <div class="featherlight-inner">
                                             <asp:CheckBoxList ID="CheckBoxHomework" CssClass="col-md-offset-1" runat="server">
                                                 <asp:ListItem Text="Matematik" Value="Matematik"></asp:ListItem>
@@ -124,9 +124,9 @@
                 </div>
                 <div class="col-md-4 col-md-offset-4" style="margin-bottom: 5px">
                     <img id="arrowleft" onclick="lastWeek();" src="../img/left.png" style="float: left; width: 25px; height: 40px" />
-                    <asp:Label ID="lblpreweek" runat="server" Text="Previous Week" Style="float: left; margin-top: 10px; margin-left: 5px;"></asp:Label>
+                    <asp:Label ID="lblpreweek" runat="server" Text="Forrige uge" Style="float: left; margin-top: 10px; margin-left: 5px;"></asp:Label>
                     <img id="arrowright" onclick="nextWeek();" src="../img/right.png" style="float: right; width: 25px; height: 40px" />
-                    <asp:Label ID="lblnextweek" runat="server" Text="Next Week" Style="float: right; margin-top: 10px; margin-right: 5px;"></asp:Label>
+                    <asp:Label ID="lblnextweek" runat="server" Text="Næste uge" Style="float: right; margin-top: 10px; margin-right: 5px;"></asp:Label>
 
                 </div>
                 <div id="lastweek" class="col-md-4 col-md-offset-4" style="margin-bottom: 30px; display: none">

@@ -12,7 +12,7 @@
 
     <style>
         .gridLines tr th {
-            text-align:center;
+            text-align: center;
         }
 
         .test {
@@ -56,14 +56,15 @@
 </head>
 <body style="font-family: 'Roboto', sans-serif !important;">
     <form id="form1" runat="server">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" style="background-color: #CFD8DC;">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">WebSiteName</a>
+                    <a class="navbar-brand" style="padding: 0;" href="Statistics.aspx">
+                        <img style="width: inherit; height: inherit; image-rendering: pixelated" src="../img/Logo.png" /></a>
                 </div>
-                <ul class="nav navbar-nav" style="float:none">
-                    <li style="float:right">
-                        <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" />
+                <ul class="nav navbar-nav" style="float: none">
+                    <li style="float: right">
+                        <asp:Button ID="Logout" Style="border: none; background-color: transparent; padding: 15px 15px;" runat="server" Text="Logout" OnClick="Logout_Click" />
                     </li>
                 </ul>
             </div>
@@ -75,7 +76,7 @@
                     <div style="margin-top: 10px; margin-left: 110px;">
                         <asp:Label ID="welcome" runat="server" Text="" Font-Size="large"></asp:Label>
                         <br />
-                        <asp:Label ID="class" runat="server" Text="" Font-Bold="True"></asp:Label>
+                        <asp:Label ID="class" runat="server" Text="Teacher" Font-Bold="True"></asp:Label>
                     </div>
                     <div style="margin-left: 110px;">
                         <asp:Label ID="lblattendance" runat="server" Text=""></asp:Label>
@@ -88,13 +89,14 @@
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 <asp:Button ID="btnTime" runat="server" OnClick="btnTime_Click" Text="Button" Style="display: none" />
-                                <asp:GridView ID="GridView1" CssClass="gridLines" style="width:100%;" AutoGenerateColumns="False" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True">
+                                <asp:GridView ID="GridView1" CssClass="gridLines" Style="width: 100%;" AutoGenerateColumns="False" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Active" SortExpression="Active">
                                             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" BackColor="Black" BorderStyle="Solid" ForeColor="White" />
                                             <ItemStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Center" />
                                             <ItemTemplate>
-                                                <asp:Image ID="Image1" style="width:20px; height:20px; margin-top:5px; margin-bottom:5px" ImageUrl='<%# GetImageUrl(Eval("active"))%>' runat="server" /></ItemTemplate>
+                                                <asp:Image ID="Image1" Style="width: 20px; height: 20px; margin-top: 5px; margin-bottom: 5px" ImageUrl='<%# GetImageUrl(Eval("active"))%>' runat="server" />
+                                            </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Mandatory" SortExpression="Mandatory">
                                             <HeaderStyle HorizontalAlign="Center" BackColor="Black" BorderStyle="Solid" ForeColor="White" />
@@ -117,7 +119,7 @@
                         </asp:UpdatePanel>
                     </div>
                 </div>
-<%--                <br />
+                <%--                <br />
                 <div class="col-md-4 col-lg-12" style="margin-bottom: 50px">
                     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
                         <ItemTemplate>
