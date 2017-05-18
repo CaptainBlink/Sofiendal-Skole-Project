@@ -8,6 +8,7 @@
     <link href="../Css/featherlight.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" />
     <script src="../js/jquery.min.js"></script>
+    <link href="../Css/Style.css" rel="stylesheet" />
     <title></title>
     <style>
         .gridLines tr td {
@@ -63,22 +64,19 @@
 </head>
 <body style="font-family: 'Roboto', sans-serif !important;">
     <form id="form1" runat="server">
-        <nav class="navbar navbar-default" style="background-color: #CFD8DC;">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="padding:0;" href="index.aspx"><img style="width:inherit; height:inherit; image-rendering:pixelated" src="../img/Logo.png"/></a>
-                </div>
-                <ul class="nav navbar-nav" style="float: none">
-                    <li style="float: right">
-                        <asp:Button ID="Logout" style="border: none; background-color: transparent; padding: 15px 15px;" runat="server" Text="Logout" OnClick="Logout_Click" />
-                    </li>
-                </ul>
-            </div>
+        <nav> 
+            <ul>
+                   <a style="padding:0;" href="index.aspx"><img class="logoMain" style="" src="../img/Logo.png"/></a>
+                <li>
+                    <asp:Button ID="Logout" style="border: none; background-color: transparent; color:black;" 
+                        runat="server" Text="Logout" OnClick="Logout_Click" />
+                </li>
+            </ul>
         </nav>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 30px">
-                    <asp:Image ID="imgPicture" Style="border-radius: 50%; float: left;" runat="server" />
+                <div class="col-xs-6 col-xs-offset-3" style="margin-bottom: 30px; margin-top:30px;">
+                    <asp:Image ID="imgPicture" Style=" border: 2px solid white; border-radius: 50%; float: left;" runat="server" />
                     <div style="margin-top: 10px; margin-left: 110px;">
                         <asp:Label ID="welcome" runat="server" Text="" Font-Size="large"></asp:Label>
                         <br />
@@ -88,24 +86,24 @@
                         <asp:Label ID="lblattendance" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
-                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 30px">
+                <div class="col-xs-4 col-xs-offset-4" style="margin-bottom: 30px">
                     <div style="box-shadow: 0px 1px 2px 1px gray; border-radius: 6px; display: grid;">
-                        <p class="text-center" style="margin-top: 10px; font-size: x-large; font-weight: 500;">
-                            Lektiecafé
-                        </p>
+                        <div class="text-center" style="margin-top: 20px; padding-bottom:15px;">
+                            <asp:Label ID="btnText" runat="server" Text="Check ind i lektiecafen"></asp:Label>
+                        </div>
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 <asp:Button ID="btnTime" runat="server" OnClick="GetTime" Text="Button" Style="display: none" />
-                                <asp:Button CssClass="col-md-4 col-md-offset-4 button" Enabled="false" Style="margin-bottom: 10px" OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
-                                <asp:Label CssClass="col-md-4 col-md-offset-4" ID="Label1" runat="server" Text=""></asp:Label>
+                                <asp:Button CssClass="col-xs-4 col-xs-offset-4 button" Enabled="false" Style="margin-bottom: 25px" OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
+                                <asp:Label CssClass="col-xs-4 col-xs-offset-4" ID="Label1" runat="server" Text=""></asp:Label>
                                 <asp:Button ID="btnTestList" Style="display: none" runat="server" OnClick="btnSubmit_Click" Text="test" />
                                 <div id="gus" runat="server" class="featherlight">
                                     <div id="HomeworkList" class="featherlight-content">
                                         <asp:Button ID="X" CssClass="featherlight-close-icon featherlight-close" runat="server" OnClick="btnCancel_Click" Text="X" />
                                         <div class="featherlight-inner">
-                                            <asp:CheckBoxList ID="CheckBoxHomework" CssClass="col-md-offset-1" runat="server">
+                                            <asp:CheckBoxList ID="CheckBoxHomework" CssClass="col-xs-offset-1" runat="server">
                                                 <asp:ListItem Text="Matematik" Value="Matematik"></asp:ListItem>
                                                 <asp:ListItem Text="Dansk" Value="Dansk"></asp:ListItem>
                                                 <asp:ListItem Text="Kristendom" Value="Kristendom"></asp:ListItem>
@@ -122,14 +120,21 @@
                         </asp:UpdatePanel>
                     </div>
                 </div>
-                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 5px">
+               
+                <div class="col-xs-6 col-xs-offset-3" style="margin-bottom: 15px">
+                     <p class="text-center" style="margin-top: 10px; font-size: xx-large; font-weight: 500;">
+                            Mine lektier
+                        </p>
+                    <p class="text-center" style="margin-top: 10px; font-size: x-large; font-weight: 500;">
+                            Uge
+                        </p>
                     <img id="arrowleft" onclick="lastWeek();" src="../img/left.png" style="float: left; width: 25px; height: 40px" />
                     <asp:Label ID="lblpreweek" runat="server" Text="Forrige uge" Style="float: left; margin-top: 10px; margin-left: 5px;"></asp:Label>
                     <img id="arrowright" onclick="nextWeek();" src="../img/right.png" style="float: right; width: 25px; height: 40px" />
                     <asp:Label ID="lblnextweek" runat="server" Text="Næste uge" Style="float: right; margin-top: 10px; margin-right: 5px;"></asp:Label>
 
                 </div>
-                <div id="lastweek" class="col-md-4 col-md-offset-4" style="margin-bottom: 30px; display: none">
+                <div id="lastweek" class="col-xs-6 col-xs-offset-3" style="margin-bottom: 30px; display: none">
                     <div style="margin-bottom: 10px;">
                         <div id="menu1" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow1();">
                             <asp:Label ID="day1" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="MANDAG"></asp:Label>
@@ -251,7 +256,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="currentweek" class="col-md-4 col-md-offset-4" style="margin-bottom: 30px; display:block">
+                <div id="currentweek" class="col-xs-6 col-xs-offset-3" style="margin-bottom: 30px; display:block">
                     <div style="margin-bottom: 10px;">
                         <div id="menu6" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow6();">
                             <asp:Label ID="day6" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="MANDAG"></asp:Label>
@@ -373,7 +378,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="nextweek" class="col-md-4 col-md-offset-4" style="margin-bottom: 30px; display: none">
+                <div id="nextweek" class="col-xs-4 col-xs-offset-4" style="margin-bottom: 30px; display: none">
                     <div style="margin-bottom: 10px;">
                         <div id="menu11" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow11();">
                             <asp:Label ID="day11" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="MANDAG"></asp:Label>
@@ -495,7 +500,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12" style="margin-bottom: 50px">
+                <div class="col-sm-12" style="margin-bottom: 50px">
+
+                    <p class="text-center" style="margin-top: 10px; padding-bottom: 20px; font-size: xx-large; font-weight: 500;">
+                            Mit skema
+                        </p>
                     <asp:GridView ID="GridView1" CssClass="gridLines" AutoGenerateColumns="false" DataSourceID="SqlDataSource1" Style="border-collapse: separate; border: #009999; border-spacing: 20px 0; border-bottom: none" Width="100%" CellSpacing="5" CellPadding="0" HorizontalAlign="Center" runat="server">
                         <Columns>
                             <asp:TemplateField HeaderText="Mandag" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
@@ -505,7 +514,7 @@
                                     <asp:Label ID="Label5" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Monday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Tirsdag" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
@@ -514,7 +523,7 @@
                                     <asp:Label ID="Label13" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Tuesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Onsdag" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
@@ -523,7 +532,7 @@
                                     <asp:Label ID="Label7" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Wednesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Torsdag" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
@@ -532,7 +541,7 @@
                                     <asp:Label ID="Label9" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Thursday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Fredag" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
@@ -541,7 +550,7 @@
                                     <asp:Label ID="Label11" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Friday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
-                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>

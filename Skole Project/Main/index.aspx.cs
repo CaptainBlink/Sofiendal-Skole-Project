@@ -37,11 +37,13 @@ namespace Skole_Project
             if (checkExisting != null)
             {
                 btnCafe.Text = "CheckOut";
+                btnText.Text = "Du can ikke check ind i lektiecafen nu";
                 btnCafe.Attributes["style"] = "background-color: #F44336; margin-bottom:10px;";
             }
             if(checkExisting != null && checkExisting2 != null)
             {
                 btnCafe.Text = "CheckIn";
+                btnText.Text = "Check ind i lektiecafen";
                 btnCafe.Attributes["style"] = "background-color: none; margin-bottom:10px;";
                 user.Active = false;
                 db.SubmitChanges();

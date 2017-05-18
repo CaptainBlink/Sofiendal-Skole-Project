@@ -67,6 +67,15 @@ namespace Skole_Project {
         protected global::System.Web.UI.WebControls.Label lblattendance;
         
         /// <summary>
+        /// btnText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label btnText;
+        
+        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
