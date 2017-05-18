@@ -67,7 +67,7 @@ namespace Skole_Project
                     newUser.Name = Name.Value;
                     newUser.Token = Token.Value;
                     newUser.Picture = Picture.Value;
-                    newUser.Class = "A";
+                    newUser.Class = 1;
                     newUser.Mandatory = false;
                     newUser.Type = false;
                     db.Users.InsertOnSubmit(newUser);

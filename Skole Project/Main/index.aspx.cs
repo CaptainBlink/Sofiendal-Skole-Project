@@ -20,6 +20,7 @@ namespace Skole_Project
            
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
             Homework homework = (from c in db.Homeworks where c.Class.Equals(user.Class) select c).FirstOrDefault();
+            var checkExisting3 = (from c in db.Classes where c.ID.Equals(user.Class) select c).FirstOrDefault();
             //if (user.Type != false)
             //{
             //    Response.Redirect("~/Teacher/Statistics.aspx");
@@ -28,10 +29,11 @@ namespace Skole_Project
             
             welcome.Text = user.Name.ToUpper();
             imgPicture.ImageUrl = user.Picture;
-            @class.Text = "6." + "\n" + user.Class;
+            @class.Text = "6." + "\n" + checkExisting3.Name;
 
             var checkExisting = (from c in db.UserDatas where c.Login.Value.Date.Equals(DateTime.Now.Date) && c.UserID.Equals(user.ID) select c.Login).FirstOrDefault();
             var checkExisting2 = (from c in db.UserDatas where c.Logout.Value.Date.Equals(DateTime.Now.Date) && c.UserID.Equals(user.ID) select c.Logout).FirstOrDefault();
+            
             if (checkExisting != null)
             {
                 btnCafe.Text = "CheckOut";
@@ -109,41 +111,41 @@ namespace Skole_Project
             //last week
 
             SqlDataSource2.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(0).ToString("yyyy-MM-dd");
-            SqlDataSource2.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource2.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource3.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(1).ToString("yyyy-MM-dd");
-            SqlDataSource3.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource3.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource4.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(2).ToString("yyyy-MM-dd");
-            SqlDataSource4.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource4.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource5.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(3).ToString("yyyy-MM-dd");
-            SqlDataSource5.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource5.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource6.SelectParameters["HomeworkDate"].DefaultValue = lastweek.ElementAt(4).ToString("yyyy-MM-dd");
-            SqlDataSource6.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource6.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
 
             //this week
 
             SqlDataSource7.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(0).ToString("yyyy-MM-dd");
-            SqlDataSource7.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource7.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource8.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(1).ToString("yyyy-MM-dd");
-            SqlDataSource8.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource8.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource9.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(2).ToString("yyyy-MM-dd");
-            SqlDataSource9.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource9.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource10.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(3).ToString("yyyy-MM-dd");
-            SqlDataSource10.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource10.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource11.SelectParameters["HomeworkDate"].DefaultValue = thisweek.ElementAt(4).ToString("yyyy-MM-dd");
-            SqlDataSource11.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource11.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
 
             //next week
 
             SqlDataSource12.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(0).ToString("yyyy-MM-dd");
-            SqlDataSource12.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource12.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource13.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(1).ToString("yyyy-MM-dd");
-            SqlDataSource13.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource13.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource14.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(2).ToString("yyyy-MM-dd");
-            SqlDataSource14.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource14.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource15.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(3).ToString("yyyy-MM-dd");
-            SqlDataSource15.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource15.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
             SqlDataSource16.SelectParameters["HomeworkDate"].DefaultValue = nextweek.ElementAt(4).ToString("yyyy-MM-dd");
-            SqlDataSource16.SelectParameters["UserClass"].DefaultValue = user.Class;
+            SqlDataSource16.SelectParameters["UserClass"].DefaultValue = checkExisting3.ID.ToString();
         }
 
         protected void GetTime(object sender, EventArgs e)

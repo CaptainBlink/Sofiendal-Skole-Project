@@ -36,17 +36,6 @@ namespace Skole_Project.Teacher
 
         }
 
-        protected string GetImageUrl(object input)
-        {
-            if (Convert.ToBoolean(input) == true)
-            {
-                return "../img/active.png";
-            }
-            else
-            {
-                return "../img/inactve.png";
-            }
-        }
 
 
         //protected void Calendar1_SelectionChanged(object sender, EventArgs e)
@@ -104,9 +93,26 @@ namespace Skole_Project.Teacher
             return myValue.ToString();
         }
 
-        protected void btnTime_Click(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
-            GridView1.DataBind();
+            var checkExisting1 = (from c in db.Users where c.Name.Contains(txtSearch.Text) select c).FirstOrDefault();
+            var checkExisting2 = (from c in db.UserDatas where c.UserID.Equals(checkExisting1.ID) select c);
+
+            studentPic.ImageUrl = checkExisting1.Picture;
+            lblname.Text = checkExisting1.Name;
+            lblclass.Text = "6." + checkExisting1.Class;
+            var attendance = (from c in db.UserDatas where c.UserID.Equals(checkExisting1.ID) select c);
+            int att = attendance.Count();
+            lblattendance.Text = "Attended:" + "\n" + "<b>" + att +"</b>";
+            if (checkExisting1.Mandatory == false)
+            {
+                lblmandatory.Text = "No";
+            }
+            else
+            {
+                lblmandatory.Text = "Yes";
+            }           
+            studentinfo.Visible = true;
         }
     }
 }

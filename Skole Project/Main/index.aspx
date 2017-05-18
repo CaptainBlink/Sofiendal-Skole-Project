@@ -149,7 +149,7 @@
                             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -173,7 +173,7 @@
                             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -197,7 +197,7 @@
                             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -221,7 +221,7 @@
                             <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -245,7 +245,7 @@
                             <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -271,7 +271,7 @@
                             <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -295,7 +295,7 @@
                             <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -319,7 +319,7 @@
                             <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -343,7 +343,7 @@
                             <asp:SqlDataSource ID="SqlDataSource10" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -367,7 +367,7 @@
                             <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -393,7 +393,7 @@
                             <asp:SqlDataSource ID="SqlDataSource12" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -417,7 +417,7 @@
                             <asp:SqlDataSource ID="SqlDataSource13" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -441,7 +441,7 @@
                             <asp:SqlDataSource ID="SqlDataSource14" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -465,7 +465,7 @@
                             <asp:SqlDataSource ID="SqlDataSource15" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -489,7 +489,7 @@
                             <asp:SqlDataSource ID="SqlDataSource16" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Homework.Subject, Homework.Homework FROM Homework WHERE (Homework.Date = @HomeworkDate) AND (Homework.Class = @UserClass)">
                                 <SelectParameters>
                                     <asp:Parameter Name="HomeworkDate" Type="DateTime" />
-                                    <asp:Parameter Name="UserClass" Type="String" />
+                                    <asp:Parameter Name="UserClass" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
@@ -509,9 +509,9 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Tirsdag" HeaderStyle-CssClass="text-center" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label4" CssClass="labltest" runat="server" Text='<%# Regex.Split(Eval("Tuesday").ToString(),";")[0] %>' Font-Bold="True"></asp:Label>
+                                    <asp:Label ID="Label12" CssClass="labltest" runat="server" Text='<%# Regex.Split(Eval("Tuesday").ToString(),";")[0] %>' Font-Bold="True"></asp:Label>
                                     <br />
-                                    <asp:Label ID="Label5" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Tuesday").ToString(),";")[1]) %>'></asp:Label>
+                                    <asp:Label ID="Label13" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Tuesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="XX-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>

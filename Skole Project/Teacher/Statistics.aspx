@@ -71,78 +71,67 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 30px">
+                <div class="col-md-4 col-md-offset-4" style="margin-bottom: 50px">
                     <asp:Image ID="imgPicture" Style="border-radius: 50%; float: left;" runat="server" />
                     <div style="margin-top: 10px; margin-left: 110px;">
                         <asp:Label ID="welcome" runat="server" Text="" Font-Size="large"></asp:Label>
                         <br />
                         <asp:Label ID="class" runat="server" Text="Teacher" Font-Bold="True"></asp:Label>
                     </div>
-                    <div style="margin-left: 110px;">
-                        <asp:Label ID="lblattendance" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="col-md-4 col-lg-12 col-md-offset-4" style="margin-bottom: 10px">
+                    <div style="margin-bottom: 20px;">
+                        <asp:Label ID="Label12" Style="margin-left: 7.33333333%;" runat="server" Text="Search for single student"></asp:Label>
+                        <br />
+                        <div style="margin-left: 7.33333333%;">
+                            <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+                            <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-12" style="margin-bottom: 50px">
-                    <div class="col-md-4 col-md-offset-4">
-                        <asp:ScriptManager ID="ScriptManager1" runat="server">
-                        </asp:ScriptManager>
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <asp:Button ID="btnTime" runat="server" OnClick="btnTime_Click" Text="Button" Style="display: none" />
-                                <asp:GridView ID="GridView1" CssClass="gridLines" Style="width: 100%;" AutoGenerateColumns="False" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True">
-                                    <Columns>
-                                        <asp:TemplateField HeaderText="Active" SortExpression="Active">
-                                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" BackColor="Black" BorderStyle="Solid" ForeColor="White" />
-                                            <ItemStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Center" />
-                                            <ItemTemplate>
-                                                <asp:Image ID="Image1" Style="width: 20px; height: 20px; margin-top: 5px; margin-bottom: 5px" ImageUrl='<%# GetImageUrl(Eval("active"))%>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Mandatory" SortExpression="Mandatory">
-                                            <HeaderStyle HorizontalAlign="Center" BackColor="Black" BorderStyle="Solid" ForeColor="White" />
-                                            <ItemStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Center" />
-                                            <ItemTemplate><%# ((bool)Eval("Mandatory")) ? "Yes" : "No" %></ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name">
-                                            <HeaderStyle HorizontalAlign="Center" BackColor="Black" BorderStyle="Solid" ForeColor="White" />
-                                            <ItemStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Center" />
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="Class" HeaderText="Class" SortExpression="Class" HeaderStyle-CssClass="header-center">
-                                            <HeaderStyle HorizontalAlign="Center" BackColor="Black" BorderStyle="Solid" ForeColor="White" />
-                                            <ItemStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Center" />
-                                        </asp:BoundField>
-                                    </Columns>
-                                </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Users.Name, Users.Class, Users.Mandatory, Users.Type, Users.Active FROM Users WHERE ((Users.Mandatory = 'True') AND (Users.Type = 'False')) OR ((Users.Mandatory = 'False') AND (Users.Active = 'True') AND (Users.Type = 'False'))"></asp:SqlDataSource>
-                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Name, Class, Mandatory, ID, Type FROM Users"></asp:SqlDataSource>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                <div id="studentinfo" class="col-md-4 col-lg-12 col-md-offset-4" runat="server" style="box-shadow: 0px 1px 2px 1px gray; border-radius: 6px; padding-left: 10px; width: 33%;" visible="false">
+                    <div style="padding-bottom: 15px;">
+                        <asp:Image ID="studentPic" Style="border-radius: 50%; float: left; width: 80px;" runat="server" />
+                        <div style="margin-top: 10px; margin-left: 110px;">
+                            <asp:Label ID="lblname" runat="server" Font-Size="large" Text=""></asp:Label>
+                            <br />
+                            <asp:Label ID="lblclass" runat="server" Font-Bold="True" Text=""></asp:Label>
+                        </div>
+                        <div style="margin-top: 10px; margin-left: 110px;">
+                            <asp:Label ID="lblattendance" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div style="margin-top: 10px; margin-left: 110px;">
+                            <asp:Label ID="Label8" runat="server" Text="Mandatory : "></asp:Label>
+                            <asp:Label ID="lblmandatory" runat="server" Text=""></asp:Label>
+                        </div>
                     </div>
                 </div>
-                <%--                <br />
-                <div class="col-md-4 col-lg-12" style="margin-bottom: 50px">
-                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
+                <%--<asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
                         <ItemTemplate>
-                            <div style="border: 2px solid red; padding-left: 10px; width: 33%;">
+                            <div style="box-shadow: 0px 1px 2px 1px gray; border-radius: 6px; padding-left: 10px; width: 33%;">
                                 <div>
                                     <asp:HiddenField ID="txtOuterID" runat="server" Value='<%# Eval("ID") %>' Visible="false" />
                                     <br />
-                                    <asp:Label ID="Label6" runat="server" Text="Name :"></asp:Label>
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("name") %>'></asp:Label>
-                                    <asp:Label ID="Label7" runat="server" Text="| Class : "></asp:Label>
-                                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Class") %>'></asp:Label>
-                                    <asp:Label ID="Label8" runat="server" Text="| Mandatory : "></asp:Label>
+                                    <asp:Image ID="studentPic" ImageUrl='<%# Eval("Picture") %>' Style="border-radius: 50%; float: left;" runat="server" />
+                                    <div style="margin-top: 10px; margin-left: 110px;">
+                                        <asp:Label ID="Label2" runat="server" Font-Size="large" Text='<%# Eval("name") %>'></asp:Label>
+                                        <br />
+                                        <asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# "6." + Eval("Class") %>'></asp:Label>
+                                    </div>
+                                    <br />
+                                    <asp:Label ID="Label8" runat="server" Text="Mandatory : "></asp:Label>
                                     <asp:Label ID="Label4" runat="server" Text='<%# ((bool)Eval("Mandatory")) ? "Yes" : "No" %>'></asp:Label>
-                                    <asp:Label ID="Label9" runat="server" Text="| Type : "></asp:Label>
-                                    <asp:Label ID="Label5" runat="server" Text='<%# ((bool)Eval("Type")) ? "Admin" : "Pupil" %>'></asp:Label>
                                 </div>
-                                <div>
+                                <br />
+                                <div style="padding-bottom: 10px;">
                                     <asp:Repeater ID="Repeater2" DataSourceID="SqlDataSource3" runat="server">
                                         <ItemTemplate>
                                             <p runat="server"><%# Eval("Login") %></p>
                                             <p runat="server"><%# Eval("logout") %></p>
-                                            <asp:Label ID="Label10" runat="server" Text="Homework : "></asp:Label>
-                                            <asp:Label ID="Label11" runat="server" Text='<%# ProcessMyDataItem(Eval("homework")) %>'></asp:Label>
+                                            <div style="margin-bottom:10px">
+                                                <asp:Label ID="Label10" runat="server" Text="Homework : "></asp:Label>
+                                                <asp:Label ID="Label11" runat="server" Text='<%# ProcessMyDataItem(Eval("homework")) %>'></asp:Label>
+                                            </div>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <asp:SqlDataSource ID="SqlDataSource3" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" runat="server" SelectCommand="SELECT UserData.Login, UserData.Logout, UserData.Homework FROM UserData WHERE UserData.UserID = @OuterID">
@@ -151,26 +140,13 @@
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </div>
-                                <br />
-                                <div>
-                                    <asp:Calendar ID="Calendar1" ToolTip='<%# Eval("ID") %>' runat="server"></asp:Calendar>
-                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-                                </div>
-                                <br />
                             </div>
                             <br />
                         </ItemTemplate>
                     </asp:Repeater>
-                </div>--%>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Users.Name, Users.Class, Users.Mandatory, Users.Type, Users.ID, Users.Picture FROM Users WHERE Users.Type = 'false'"></asp:SqlDataSource>--%>
             </div>
         </div>
     </form>
-    <script type="text/javascript">
-        window.onload = function () {
-            setInterval(function () {
-                document.getElementById("<%=btnTime.ClientID %>").click();
-            }, 1000);
-        };
-    </script>
 </body>
 </html>
