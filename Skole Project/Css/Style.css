@@ -1,0 +1,38 @@
+.logoMain {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    width:350px;
+    padding: 12px 12px;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #CFD8DC;
+}
+
+li  {
+    float: right;
+    display: block;
+    color: #666;
+    text-align: center;
+    padding:32px 36px;
+    text-decoration: none;
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+
+li:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li.active {
+    color: white;
+    background-color: #4CAF50;
+}
