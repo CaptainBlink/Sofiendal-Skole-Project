@@ -39,12 +39,12 @@ namespace Skole_Project.DataBase
     partial void InsertUserData(UserData instance);
     partial void UpdateUserData(UserData instance);
     partial void DeleteUserData(UserData instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertHomework(Homework instance);
     partial void UpdateHomework(Homework instance);
     partial void DeleteHomework(Homework instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -101,19 +101,19 @@ namespace Skole_Project.DataBase
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Homework> Homeworks
 		{
 			get
 			{
 				return this.GetTable<Homework>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -130,9 +130,9 @@ namespace Skole_Project.DataBase
 		
 		private EntitySet<Schedule> _Schedules;
 		
-		private EntitySet<User> _Users;
-		
 		private EntitySet<Homework> _Homeworks;
+		
+		private EntitySet<User> _Users;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -147,8 +147,8 @@ namespace Skole_Project.DataBase
 		public Class()
 		{
 			this._Schedules = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedules), new Action<Schedule>(this.detach_Schedules));
-			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
 			this._Homeworks = new EntitySet<Homework>(new Action<Homework>(this.attach_Homeworks), new Action<Homework>(this.detach_Homeworks));
+			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
 			OnCreated();
 		}
 		
@@ -205,19 +205,6 @@ namespace Skole_Project.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_User", Storage="_Users", ThisKey="ID", OtherKey="Class")]
-		public EntitySet<User> Users
-		{
-			get
-			{
-				return this._Users;
-			}
-			set
-			{
-				this._Users.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Homework", Storage="_Homeworks", ThisKey="ID", OtherKey="Class")]
 		public EntitySet<Homework> Homeworks
 		{
@@ -228,6 +215,19 @@ namespace Skole_Project.DataBase
 			set
 			{
 				this._Homeworks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_User", Storage="_Users", ThisKey="ID", OtherKey="Class")]
+		public EntitySet<User> Users
+		{
+			get
+			{
+				return this._Users;
+			}
+			set
+			{
+				this._Users.Assign(value);
 			}
 		}
 		
@@ -263,18 +263,6 @@ namespace Skole_Project.DataBase
 			entity.Class1 = null;
 		}
 		
-		private void attach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Class1 = this;
-		}
-		
-		private void detach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Class1 = null;
-		}
-		
 		private void attach_Homeworks(Homework entity)
 		{
 			this.SendPropertyChanging();
@@ -282,6 +270,18 @@ namespace Skole_Project.DataBase
 		}
 		
 		private void detach_Homeworks(Homework entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class1 = null;
+		}
+		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class1 = this;
+		}
+		
+		private void detach_Users(User entity)
 		{
 			this.SendPropertyChanging();
 			entity.Class1 = null;
@@ -734,305 +734,6 @@ namespace Skole_Project.DataBase
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private string _Token;
-		
-		private int _Class;
-		
-		private System.Nullable<bool> _Mandatory;
-		
-		private System.Nullable<bool> _Type;
-		
-		private string _Picture;
-		
-		private System.Nullable<bool> _Active;
-		
-		private EntitySet<UserData> _UserDatas;
-		
-		private EntityRef<Class> _Class1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnTokenChanging(string value);
-    partial void OnTokenChanged();
-    partial void OnClassChanging(int value);
-    partial void OnClassChanged();
-    partial void OnMandatoryChanging(System.Nullable<bool> value);
-    partial void OnMandatoryChanged();
-    partial void OnTypeChanging(System.Nullable<bool> value);
-    partial void OnTypeChanged();
-    partial void OnPictureChanging(string value);
-    partial void OnPictureChanged();
-    partial void OnActiveChanging(System.Nullable<bool> value);
-    partial void OnActiveChanged();
-    #endregion
-		
-		public User()
-		{
-			this._UserDatas = new EntitySet<UserData>(new Action<UserData>(this.attach_UserDatas), new Action<UserData>(this.detach_UserDatas));
-			this._Class1 = default(EntityRef<Class>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Token
-		{
-			get
-			{
-				return this._Token;
-			}
-			set
-			{
-				if ((this._Token != value))
-				{
-					this.OnTokenChanging(value);
-					this.SendPropertyChanging();
-					this._Token = value;
-					this.SendPropertyChanged("Token");
-					this.OnTokenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="Int NOT NULL")]
-		public int Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					if (this._Class1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnClassChanging(value);
-					this.SendPropertyChanging();
-					this._Class = value;
-					this.SendPropertyChanged("Class");
-					this.OnClassChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mandatory", DbType="Bit")]
-		public System.Nullable<bool> Mandatory
-		{
-			get
-			{
-				return this._Mandatory;
-			}
-			set
-			{
-				if ((this._Mandatory != value))
-				{
-					this.OnMandatoryChanging(value);
-					this.SendPropertyChanging();
-					this._Mandatory = value;
-					this.SendPropertyChanged("Mandatory");
-					this.OnMandatoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Bit")]
-		public System.Nullable<bool> Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this.OnTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", DbType="VarChar(MAX)")]
-		public string Picture
-		{
-			get
-			{
-				return this._Picture;
-			}
-			set
-			{
-				if ((this._Picture != value))
-				{
-					this.OnPictureChanging(value);
-					this.SendPropertyChanging();
-					this._Picture = value;
-					this.SendPropertyChanged("Picture");
-					this.OnPictureChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
-		public System.Nullable<bool> Active
-		{
-			get
-			{
-				return this._Active;
-			}
-			set
-			{
-				if ((this._Active != value))
-				{
-					this.OnActiveChanging(value);
-					this.SendPropertyChanging();
-					this._Active = value;
-					this.SendPropertyChanged("Active");
-					this.OnActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserData", Storage="_UserDatas", ThisKey="ID", OtherKey="UserID")]
-		public EntitySet<UserData> UserDatas
-		{
-			get
-			{
-				return this._UserDatas;
-			}
-			set
-			{
-				this._UserDatas.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_User", Storage="_Class1", ThisKey="Class", OtherKey="ID", IsForeignKey=true)]
-		public Class Class1
-		{
-			get
-			{
-				return this._Class1.Entity;
-			}
-			set
-			{
-				Class previousValue = this._Class1.Entity;
-				if (((previousValue != value) 
-							|| (this._Class1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Class1.Entity = null;
-						previousValue.Users.Remove(this);
-					}
-					this._Class1.Entity = value;
-					if ((value != null))
-					{
-						value.Users.Add(this);
-						this._Class = value.ID;
-					}
-					else
-					{
-						this._Class = default(int);
-					}
-					this.SendPropertyChanged("Class1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_UserDatas(UserData entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_UserDatas(UserData entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Homework")]
 	public partial class Homework : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1229,6 +930,329 @@ namespace Skole_Project.DataBase
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private string _Token;
+		
+		private int _Class;
+		
+		private System.Nullable<bool> _Mandatory;
+		
+		private System.Nullable<bool> _Type;
+		
+		private string _Picture;
+		
+		private System.Nullable<bool> _Active;
+		
+		private string _MandatoryReason;
+		
+		private EntitySet<UserData> _UserDatas;
+		
+		private EntityRef<Class> _Class1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnTokenChanging(string value);
+    partial void OnTokenChanged();
+    partial void OnClassChanging(int value);
+    partial void OnClassChanged();
+    partial void OnMandatoryChanging(System.Nullable<bool> value);
+    partial void OnMandatoryChanged();
+    partial void OnTypeChanging(System.Nullable<bool> value);
+    partial void OnTypeChanged();
+    partial void OnPictureChanging(string value);
+    partial void OnPictureChanged();
+    partial void OnActiveChanging(System.Nullable<bool> value);
+    partial void OnActiveChanged();
+    partial void OnMandatoryReasonChanging(string value);
+    partial void OnMandatoryReasonChanged();
+    #endregion
+		
+		public User()
+		{
+			this._UserDatas = new EntitySet<UserData>(new Action<UserData>(this.attach_UserDatas), new Action<UserData>(this.detach_UserDatas));
+			this._Class1 = default(EntityRef<Class>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Token
+		{
+			get
+			{
+				return this._Token;
+			}
+			set
+			{
+				if ((this._Token != value))
+				{
+					this.OnTokenChanging(value);
+					this.SendPropertyChanging();
+					this._Token = value;
+					this.SendPropertyChanged("Token");
+					this.OnTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="Int NOT NULL")]
+		public int Class
+		{
+			get
+			{
+				return this._Class;
+			}
+			set
+			{
+				if ((this._Class != value))
+				{
+					if (this._Class1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnClassChanging(value);
+					this.SendPropertyChanging();
+					this._Class = value;
+					this.SendPropertyChanged("Class");
+					this.OnClassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mandatory", DbType="Bit")]
+		public System.Nullable<bool> Mandatory
+		{
+			get
+			{
+				return this._Mandatory;
+			}
+			set
+			{
+				if ((this._Mandatory != value))
+				{
+					this.OnMandatoryChanging(value);
+					this.SendPropertyChanging();
+					this._Mandatory = value;
+					this.SendPropertyChanged("Mandatory");
+					this.OnMandatoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Bit")]
+		public System.Nullable<bool> Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", DbType="VarChar(MAX)")]
+		public string Picture
+		{
+			get
+			{
+				return this._Picture;
+			}
+			set
+			{
+				if ((this._Picture != value))
+				{
+					this.OnPictureChanging(value);
+					this.SendPropertyChanging();
+					this._Picture = value;
+					this.SendPropertyChanged("Picture");
+					this.OnPictureChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
+		public System.Nullable<bool> Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MandatoryReason", DbType="VarChar(50)")]
+		public string MandatoryReason
+		{
+			get
+			{
+				return this._MandatoryReason;
+			}
+			set
+			{
+				if ((this._MandatoryReason != value))
+				{
+					this.OnMandatoryReasonChanging(value);
+					this.SendPropertyChanging();
+					this._MandatoryReason = value;
+					this.SendPropertyChanged("MandatoryReason");
+					this.OnMandatoryReasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserData", Storage="_UserDatas", ThisKey="ID", OtherKey="UserID")]
+		public EntitySet<UserData> UserDatas
+		{
+			get
+			{
+				return this._UserDatas;
+			}
+			set
+			{
+				this._UserDatas.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_User", Storage="_Class1", ThisKey="Class", OtherKey="ID", IsForeignKey=true)]
+		public Class Class1
+		{
+			get
+			{
+				return this._Class1.Entity;
+			}
+			set
+			{
+				Class previousValue = this._Class1.Entity;
+				if (((previousValue != value) 
+							|| (this._Class1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Class1.Entity = null;
+						previousValue.Users.Remove(this);
+					}
+					this._Class1.Entity = value;
+					if ((value != null))
+					{
+						value.Users.Add(this);
+						this._Class = value.ID;
+					}
+					else
+					{
+						this._Class = default(int);
+					}
+					this.SendPropertyChanged("Class1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_UserDatas(UserData entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_UserDatas(UserData entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 }

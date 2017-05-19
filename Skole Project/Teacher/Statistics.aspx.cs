@@ -107,36 +107,19 @@ namespace Skole_Project.Teacher
             lblattendance.Text = "Attended:" + "\n" + "<b>" + att + "</b>";
             if (checkExisting1.Mandatory == false)
             {
-                lblmandatory.Text = "No";
+                mandatoryinfo.Visible = false;
+                lblmandatory.Text = "";
+                mandatoryimg.ImageUrl = "";
+                lblmandatoryreason.Text = "";
             }
             else
             {
-                lblmandatory.Text = "Yes";
+                mandatoryinfo.Visible = true;
+                mandatoryimg.ImageUrl = "~/img/mandatory.png";
+                lblmandatory.Text = "Agreement with parents";
+                lblmandatoryreason.Text = checkExisting1.MandatoryReason;
             }
             studentinfo.Visible = true;
-        }
-
-        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
-        {
-            var checkExisting1 = (from c in db.Users where c.Name.Contains(txtSearch.Text) select c).FirstOrDefault();
-            var checkExisting2 = (from c in db.UserDatas where c.UserID.Equals(checkExisting1.ID) select c.Login);
-            var checkExisting3 = (from c in db.UserDatas where c.UserID.Equals(checkExisting1.ID) select c.Homework);
-
-            foreach (DateTime dr in checkExisting2)
-            {
-                if (dr.Date == e.Day.Date)
-                {
-                    e.Cell.BackColor = Color.Red;
-                }
-            }
-        }
-
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-            Label1.Text = Calendar1.SelectedDate.ToString("yyyy/MM/dd");
-            var checkExisting1 = (from c in db.Users where c.Name.Contains(txtSearch.Text) select c).FirstOrDefault();
-            var checkExisting2 = (from c in db.UserDatas where (c.UserID.Equals(checkExisting1.ID)) && (c.Login.Equals(Label1.Text)) select c.Homework).FirstOrDefault();
-            Label1.Text = checkExisting2;
         }
     }
 }

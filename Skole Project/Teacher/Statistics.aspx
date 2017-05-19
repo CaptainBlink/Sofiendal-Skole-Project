@@ -100,33 +100,49 @@
                         <div style="margin-top: 10px; margin-left: 110px;">
                             <asp:Label ID="lblattendance" runat="server" Text=""></asp:Label>
                         </div>
-                        <div style="margin-top: 10px; margin-left: 110px;">
-                            <asp:Label ID="Label8" runat="server" Text="Mandatory : "></asp:Label>
-                            <asp:Label ID="lblmandatory" runat="server" Text=""></asp:Label>
+                        <br />
+                        <div style="margin-bottom: 10px">
+                            <asp:Label ID="Label1" runat="server" Text="Attended Dates :" Font-Bold="true"></asp:Label>
                         </div>
                         <div>
                             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                                 <ItemTemplate>
                                     <div>
+                                        <asp:HiddenField ID="txtOuterID" runat="server" Value='<%# Eval("ID") %>' Visible="false" />
                                         <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                                     </div>
                                     <div>
                                         <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource2">
                                             <ItemTemplate>
-                                                <div>
-                                                    <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+                                                <div style="box-shadow: 0px 1px 2px 1px gray; border-radius: 6px; margin-bottom: 10px; padding: 2px 2px 2px 2px;">
+                                                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("Login", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                    <br />
+                                                    <asp:Label ID="Label5" runat="server" Text="Subjects:" Font-Bold="true"></asp:Label>
+                                                    <asp:Label ID="Label3" runat="server" Text='<%# ProcessMyDataItem(Eval("homework")).Replace("," , ", ") %>'></asp:Label>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:Repeater>
-                                        <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+                                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT UserData.Login, UserData.Logout, UserData.Homework FROM UserData WHERE UserData.UserID = @OuterID">
+                                            <SelectParameters>
+                                                <asp:ControlParameter Name="OuterID" Type="Int32" ControlID="txtOuterID" PropertyName="Value" />
+                                            </SelectParameters>
+                                        </asp:SqlDataSource>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Users.Name, Users.Class, Users.Mandatory, Users.Type, Users.ID, Users.Picture FROM Users WHERE Users.Type = 'false'"></asp:SqlDataSource>
-                        <div>
-                            <asp:Calendar ID="Calendar1" OnSelectionChanged="Calendar1_SelectionChanged" OnDayRender="Calendar1_DayRender" runat="server"></asp:Calendar>
-                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Users.Name, Users.Class, Users.Mandatory, Users.Type, Users.ID, Users.Picture FROM Users WHERE Users.Name = @txtName">
+                            <SelectParameters>
+                                <asp:ControlParameter Name="txtName" Type="String" ControlID="lblname" PropertyName="Text" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <div id="mandatoryinfo" runat="server" style="margin-top: 10px">
+                            <asp:Image ID="mandatoryimg" Style="width: 15px;" runat="server" />
+                            <asp:Label ID="lblmandatory" style="vertical-align: text-top;" runat="server" Text=""></asp:Label>
+                            <br />
+                            <div style="margin-top:5px">
+                                <asp:Label ID="lblmandatoryreason" runat="server" Text=""></asp:Label>
+                            </div>
                         </div>
                     </div>
                 </div>
