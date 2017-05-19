@@ -42,6 +42,9 @@ namespace Skole_Project.DataBase
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertHomework(Homework instance);
+    partial void UpdateHomework(Homework instance);
+    partial void DeleteHomework(Homework instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -82,14 +85,6 @@ namespace Skole_Project.DataBase
 			}
 		}
 		
-		public System.Data.Linq.Table<Homework> Homeworks
-		{
-			get
-			{
-				return this.GetTable<Homework>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Schedule> Schedules
 		{
 			get
@@ -113,6 +108,14 @@ namespace Skole_Project.DataBase
 				return this.GetTable<User>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Homework> Homeworks
+		{
+			get
+			{
+				return this.GetTable<Homework>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Class")]
@@ -129,6 +132,8 @@ namespace Skole_Project.DataBase
 		
 		private EntitySet<User> _Users;
 		
+		private EntitySet<Homework> _Homeworks;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -143,6 +148,7 @@ namespace Skole_Project.DataBase
 		{
 			this._Schedules = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedules), new Action<Schedule>(this.detach_Schedules));
 			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			this._Homeworks = new EntitySet<Homework>(new Action<Homework>(this.attach_Homeworks), new Action<Homework>(this.detach_Homeworks));
 			OnCreated();
 		}
 		
@@ -212,6 +218,19 @@ namespace Skole_Project.DataBase
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Homework", Storage="_Homeworks", ThisKey="ID", OtherKey="Class")]
+		public EntitySet<Homework> Homeworks
+		{
+			get
+			{
+				return this._Homeworks;
+			}
+			set
+			{
+				this._Homeworks.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -255,104 +274,17 @@ namespace Skole_Project.DataBase
 			this.SendPropertyChanging();
 			entity.Class1 = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Homework")]
-	public partial class Homework
-	{
 		
-		private int _ID;
-		
-		private string _Homework1;
-		
-		private System.Nullable<int> _Class;
-		
-		private string _Subject;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		public Homework()
+		private void attach_Homeworks(Homework entity)
 		{
+			this.SendPropertyChanging();
+			entity.Class1 = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int ID
+		private void detach_Homeworks(Homework entity)
 		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Homework", Storage="_Homework1", DbType="VarChar(MAX)")]
-		public string Homework1
-		{
-			get
-			{
-				return this._Homework1;
-			}
-			set
-			{
-				if ((this._Homework1 != value))
-				{
-					this._Homework1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="Int")]
-		public System.Nullable<int> Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					this._Class = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subject", DbType="VarChar(50)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
-			}
+			this.SendPropertyChanging();
+			entity.Class1 = null;
 		}
 	}
 	
@@ -1098,6 +1030,205 @@ namespace Skole_Project.DataBase
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Homework")]
+	public partial class Homework : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Homework1;
+		
+		private System.Nullable<int> _Class;
+		
+		private string _Subject;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private EntityRef<Class> _Class1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnHomework1Changing(string value);
+    partial void OnHomework1Changed();
+    partial void OnClassChanging(System.Nullable<int> value);
+    partial void OnClassChanged();
+    partial void OnSubjectChanging(string value);
+    partial void OnSubjectChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    #endregion
+		
+		public Homework()
+		{
+			this._Class1 = default(EntityRef<Class>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Homework", Storage="_Homework1", DbType="VarChar(MAX)")]
+		public string Homework1
+		{
+			get
+			{
+				return this._Homework1;
+			}
+			set
+			{
+				if ((this._Homework1 != value))
+				{
+					this.OnHomework1Changing(value);
+					this.SendPropertyChanging();
+					this._Homework1 = value;
+					this.SendPropertyChanged("Homework1");
+					this.OnHomework1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="Int")]
+		public System.Nullable<int> Class
+		{
+			get
+			{
+				return this._Class;
+			}
+			set
+			{
+				if ((this._Class != value))
+				{
+					if (this._Class1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnClassChanging(value);
+					this.SendPropertyChanging();
+					this._Class = value;
+					this.SendPropertyChanged("Class");
+					this.OnClassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subject", DbType="VarChar(50)")]
+		public string Subject
+		{
+			get
+			{
+				return this._Subject;
+			}
+			set
+			{
+				if ((this._Subject != value))
+				{
+					this.OnSubjectChanging(value);
+					this.SendPropertyChanging();
+					this._Subject = value;
+					this.SendPropertyChanged("Subject");
+					this.OnSubjectChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Homework", Storage="_Class1", ThisKey="Class", OtherKey="ID", IsForeignKey=true)]
+		public Class Class1
+		{
+			get
+			{
+				return this._Class1.Entity;
+			}
+			set
+			{
+				Class previousValue = this._Class1.Entity;
+				if (((previousValue != value) 
+							|| (this._Class1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Class1.Entity = null;
+						previousValue.Homeworks.Remove(this);
+					}
+					this._Class1.Entity = value;
+					if ((value != null))
+					{
+						value.Homeworks.Add(this);
+						this._Class = value.ID;
+					}
+					else
+					{
+						this._Class = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Class1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

@@ -154,7 +154,7 @@ namespace Skole_Project
         {
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
             var checkExisting = (from c in db.UserDatas where c.Logout.Value.Date.Equals(DateTime.Now.Date) & c.UserID.Equals(user.ID) select c.Login).FirstOrDefault();
-            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting == null && (Convert.ToInt32(DateTime.Today.DayOfWeek) == 1 || Convert.ToInt32(DateTime.Today.DayOfWeek) == 2))
+            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting == null && (Convert.ToInt32(DateTime.Today.DayOfWeek) == 5 || Convert.ToInt32(DateTime.Today.DayOfWeek) == 6))
             {
                 if(btnCafe.Text != "CheckOut")
                 {

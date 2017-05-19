@@ -104,6 +104,30 @@
                             <asp:Label ID="Label8" runat="server" Text="Mandatory : "></asp:Label>
                             <asp:Label ID="lblmandatory" runat="server" Text=""></asp:Label>
                         </div>
+                        <div>
+                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                                <ItemTemplate>
+                                    <div>
+                                        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                                    </div>
+                                    <div>
+                                        <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource2">
+                                            <ItemTemplate>
+                                                <div>
+                                                    <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Users.Name, Users.Class, Users.Mandatory, Users.Type, Users.ID, Users.Picture FROM Users WHERE Users.Type = 'false'"></asp:SqlDataSource>
+                        <div>
+                            <asp:Calendar ID="Calendar1" OnSelectionChanged="Calendar1_SelectionChanged" OnDayRender="Calendar1_DayRender" runat="server"></asp:Calendar>
+                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                        </div>
                     </div>
                 </div>
                 <%--<asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">

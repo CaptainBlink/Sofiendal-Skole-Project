@@ -17,7 +17,7 @@ namespace Skole_Project.Teacher
         {
 
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
-          
+
             if (user.Type != true)
             {
                 Response.Redirect("~/GoogleLogin.aspx");
@@ -97,13 +97,14 @@ namespace Skole_Project.Teacher
         {
             var checkExisting1 = (from c in db.Users where c.Name.Contains(txtSearch.Text) select c).FirstOrDefault();
             var checkExisting2 = (from c in db.UserDatas where c.UserID.Equals(checkExisting1.ID) select c);
+            var checkExisting3 = (from c in db.Classes where c.ID.Equals(checkExisting1.Class) select c).FirstOrDefault();
 
             studentPic.ImageUrl = checkExisting1.Picture;
             lblname.Text = checkExisting1.Name;
-            lblclass.Text = "6." + checkExisting1.Class;
+            lblclass.Text = "6." + checkExisting3.Name;
             var attendance = (from c in db.UserDatas where c.UserID.Equals(checkExisting1.ID) select c);
             int att = attendance.Count();
-            lblattendance.Text = "Attended:" + "\n" + "<b>" + att +"</b>";
+            lblattendance.Text = "Attended:" + "\n" + "<b>" + att + "</b>";
             if (checkExisting1.Mandatory == false)
             {
                 lblmandatory.Text = "No";
@@ -111,8 +112,31 @@ namespace Skole_Project.Teacher
             else
             {
                 lblmandatory.Text = "Yes";
-            }           
+            }
             studentinfo.Visible = true;
+        }
+
+        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        {
+            var checkExisting1 = (from c in db.Users where c.Name.Contains(txtSearch.Text) select c).FirstOrDefault();
+            var checkExisting2 = (from c in db.UserDatas where c.UserID.Equals(checkExisting1.ID) select c.Login);
+            var checkExisting3 = (from c in db.UserDatas where c.UserID.Equals(checkExisting1.ID) select c.Homework);
+
+            foreach (DateTime dr in checkExisting2)
+            {
+                if (dr.Date == e.Day.Date)
+                {
+                    e.Cell.BackColor = Color.Red;
+                }
+            }
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            Label1.Text = Calendar1.SelectedDate.ToString("yyyy/MM/dd");
+            var checkExisting1 = (from c in db.Users where c.Name.Contains(txtSearch.Text) select c).FirstOrDefault();
+            var checkExisting2 = (from c in db.UserDatas where (c.UserID.Equals(checkExisting1.ID)) && (c.Login.Equals(Label1.Text)) select c.Homework).FirstOrDefault();
+            Label1.Text = checkExisting2;
         }
     }
 }

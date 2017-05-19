@@ -834,7 +834,7 @@
             var todayHour = new Date().getHours();
             var todayMin = new Date().getMinutes();
             var todayCafe = new Date().getDay();
-            if ((todayCafe == 1 & todayHour < 24) || (todayCafe == 2 & todayHour < 24)) {
+            if ((todayCafe == 4 & todayHour < 24) || (todayCafe == 5 & todayHour < 24)) {
                 setInterval(function () {
                     if (document.getElementById('<%=btnCafe.ClientID%>').disabled == true) {
                         document.getElementById("<%=btnTime.ClientID %>").click();

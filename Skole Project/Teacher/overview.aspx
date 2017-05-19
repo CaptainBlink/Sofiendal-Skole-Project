@@ -107,13 +107,13 @@
                                             <HeaderStyle HorizontalAlign="Center" BackColor="Black" BorderStyle="Solid" ForeColor="White" />
                                             <ItemStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Center" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="Class" HeaderText="Class" SortExpression="Class" HeaderStyle-CssClass="header-center">
+                                        <asp:BoundField DataField="ClassName" HeaderText="Class" SortExpression="Class" HeaderStyle-CssClass="header-center">
                                             <HeaderStyle HorizontalAlign="Center" BackColor="Black" BorderStyle="Solid" ForeColor="White" />
                                             <ItemStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Center" />
                                         </asp:BoundField>
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Users.Name, Users.Class, Users.Mandatory, Users.Type, Users.Active FROM Users WHERE ((Users.Mandatory = 'True') AND (Users.Type = 'False')) OR ((Users.Mandatory = 'False') AND (Users.Active = 'True') AND (Users.Type = 'False'))"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pwe0916_1028717ConnectionString %>" SelectCommand="SELECT Users.Name, Class.Name AS ClassName, Users.Mandatory, Users.Type, Users.Active FROM Users INNER JOIN Class ON Users.Class = Class.ID WHERE (Users.Mandatory = 'True') AND (Users.Type = 'False') OR (Users.Mandatory = 'False') AND (Users.Type = 'False') AND (Users.Active = 'True')"></asp:SqlDataSource>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
