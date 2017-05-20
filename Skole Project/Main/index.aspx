@@ -60,6 +60,34 @@
             border: none;
             box-shadow: 0 2px 2px darkgray;
         }
+        .checkButText {
+            margin-left:8px;
+            text-decoration:none;
+           
+        }
+        .middleGo {
+              display: table;
+  margin: 0 auto;
+  text-align: center;
+        }
+        #btnCafe{
+              display: table;
+  margin: 0 auto;
+  text-align: center;
+  
+        }
+        #popUpHomework{
+            border-radius:25px;
+        }
+    
+@media screen and (min-width: 200px) and (max-width: 1000px) {
+
+  #btnCafe{
+ font-size:1em;
+
+  }     
+}
+
     </style>
 </head>
 <body style="font-family: 'Roboto', sans-serif !important;">
@@ -89,30 +117,32 @@
                 <div class="col-xs-4 col-xs-offset-4" style="margin-bottom: 30px">
                     <div style="box-shadow: 0px 1px 2px 1px gray; border-radius: 6px; display: grid;">
                         <div class="text-center" style="margin-top: 20px; padding-bottom:15px;">
-                            <asp:Label ID="btnText" runat="server" Text="Check ind i lektiecafen"></asp:Label>
+                            <asp:Label ID="btnText" Enabled="false" runat="server" Text="Check ind i lektiecafen"></asp:Label>
                         </div>
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 <asp:Button ID="btnTime" runat="server" OnClick="GetTime" Text="Button" Style="display: none" />
-                                <asp:Button CssClass="col-xs-4 col-xs-offset-4 button" Enabled="false" Style="margin-bottom: 25px" OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
+                                <asp:Button CssClass="button" Enabled="false" Style="padding:0px 10px 0px 10px;margin-bottom: 25px" OnClick="btnCafe_Click" ID="btnCafe" runat="server" Text="CheckIn" />
                                 <asp:Label CssClass="col-xs-4 col-xs-offset-4" ID="Label1" runat="server" Text=""></asp:Label>
                                 <asp:Button ID="btnTestList" Style="display: none" runat="server" OnClick="btnSubmit_Click" Text="test" />
                                 <div id="gus" runat="server" class="featherlight">
                                     <div id="HomeworkList" class="featherlight-content">
                                         <asp:Button ID="X" CssClass="featherlight-close-icon featherlight-close" runat="server" OnClick="btnCancel_Click" Text="X" />
-                                        <div class="featherlight-inner">
-                                            <asp:CheckBoxList ID="CheckBoxHomework" CssClass="col-xs-offset-1" runat="server">
-                                                <asp:ListItem Text="Matematik" Value="Matematik"></asp:ListItem>
-                                                <asp:ListItem Text="Dansk" Value="Dansk"></asp:ListItem>
-                                                <asp:ListItem Text="Kristendom" Value="Kristendom"></asp:ListItem>
-                                                <asp:ListItem Text="Engelsk" Value="Engelsk"></asp:ListItem>
-                                                <asp:ListItem Text="Værkstedsfag" Value="Værkstedsfag"></asp:ListItem>
+                                        <div id="popUpHomework" class="featherlight-inner">
+                                            <asp:CheckBoxList Style="width:200px; border-radius:25px;" ID="CheckBoxHomework" CssClass="col-xs-4 col-xs-offset-4" runat="server">
+                                                <asp:ListItem Text="" Value="Matematik" ><u class="checkButText">Matematik</u></asp:ListItem>
+                                                <asp:ListItem Text="" Value="Dansk"><u class="checkButText">Dansk</u></asp:ListItem>
+                                                <asp:ListItem Text="" Value="Kristendom"><u class="checkButText">Kristendom</u></asp:ListItem>
+                                                <asp:ListItem Text="" Value="Engelsk"><u class="checkButText">Engelsk</u></asp:ListItem>
+                                                <asp:ListItem Text="" Value="Værkstedsfag"><u class="checkButText">Værkstedsfag</u></asp:ListItem>
                                             </asp:CheckBoxList>
-                                            <asp:CustomValidator ID="CustomValidator1" Style="display: none; width: 130px; text-align: center;" ErrorMessage="Please select at least one item." ForeColor="Red" ClientValidationFunction="ValidateCheckBoxList" runat="server" ValidationGroup="Subjects" />
+                                            <div class="middleGo">
+                                            <asp:CustomValidator ID="CustomValidator1" Style="display: none; width: 150px; text-align: center;" ErrorMessage="Please select at least one item." ForeColor="Red" ClientValidationFunction="ValidateCheckBoxList" runat="server" ValidationGroup="Subjects" />
                                             <asp:Button ID="btnSubmit" BackColor="#549788" ForeColor="White" CssClass="btnHomework" runat="server" OnClick="btnSubmit_Click" Text="Submit" ValidationGroup="Subjects" />
-                                            <asp:Button ID="btnCancel" BackColor="#F44336" ForeColor="White" CssClass="btnHomework" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
+                                            <asp:Button ID="btnCancel" style="margin-left:5px;" BackColor="#F44336" ForeColor="White" CssClass="btnHomework" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -500,9 +530,10 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-sm-12" style="margin-bottom: 50px">
 
-                    <p class="text-center" style="margin-top: 10px; padding-bottom: 20px; font-size: xx-large; font-weight: 500;">
+                    <p  class="text-center" style="margin-top: 10px; padding-bottom: 20px; font-size: xx-large; font-weight: 500;">
                             Mit skema
                         </p>
                     <asp:GridView ID="GridView1" CssClass="gridLines" AutoGenerateColumns="false" DataSourceID="SqlDataSource1" Style="border-collapse: separate; border: #009999; border-spacing: 20px 0; border-bottom: none" Width="100%" CellSpacing="5" CellPadding="0" HorizontalAlign="Center" runat="server">
@@ -834,7 +865,7 @@
             var todayHour = new Date().getHours();
             var todayMin = new Date().getMinutes();
             var todayCafe = new Date().getDay();
-            if ((todayCafe == 4 & todayHour < 24) || (todayCafe == 5 & todayHour < 24)) {
+            if ((todayCafe == 7 & todayHour < 24) || (todayCafe == 1 & todayHour < 24)) {
                 setInterval(function () {
                     if (document.getElementById('<%=btnCafe.ClientID%>').disabled == true) {
                         document.getElementById("<%=btnTime.ClientID %>").click();

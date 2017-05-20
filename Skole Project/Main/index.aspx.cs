@@ -42,8 +42,8 @@ namespace Skole_Project
             }
             if(checkExisting != null && checkExisting2 != null)
             {
-                btnCafe.Text = "CheckIn";
-                btnText.Text = "Check ind i lektiecafen";
+                btnCafe.Text = "";
+                btnText.Text = "Du can check ind i lektiecafen nu";
                 btnCafe.Attributes["style"] = "background-color: none; margin-bottom:10px;";
                 user.Active = false;
                 db.SubmitChanges();
@@ -154,10 +154,11 @@ namespace Skole_Project
         {
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
             var checkExisting = (from c in db.UserDatas where c.Logout.Value.Date.Equals(DateTime.Now.Date) & c.UserID.Equals(user.ID) select c.Login).FirstOrDefault();
-            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting == null && (Convert.ToInt32(DateTime.Today.DayOfWeek) == 5 || Convert.ToInt32(DateTime.Today.DayOfWeek) == 6))
+            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting == null && (Convert.ToInt32(DateTime.Today.DayOfWeek) == 7 || Convert.ToInt32(DateTime.Today.DayOfWeek) == 1))
             {
                 if(btnCafe.Text != "CheckOut")
                 {
+                    btnText.Text = "Du can ikke check ind i lektiecafen nu";
                     btnCafe.Attributes["style"] = "background-color: #549788; margin-bottom:10px;";
                 }
                 btnCafe.Enabled = true;
@@ -215,6 +216,7 @@ namespace Skole_Project
                     db.SubmitChanges();
                     btnCafe.Text = "CheckOut";
                     btnCafe.Attributes["style"] = "background-color: #F44336; margin-bottom:10px;";
+                    btnText.Text = "Du can ikke check ind i lektiecafen nu";
                     //btnCafe.Attributes["data-featherlight"] = "#HomeworkList";
                     //btnCafe.Attributes["data-featherlight-close-on-click"] = "false";
                 }
@@ -222,6 +224,7 @@ namespace Skole_Project
                 {
                     btnCafe.Text = "CheckOut";
                     btnCafe.Attributes["style"] = "background-color: #F44336; margin-bottom:10px;";
+                    btnText.Text = "Du can ikke check ind i lektiecafen nu";
                     //btnCafe.Attributes["data-featherlight"] = "#HomeworkList";
                     //btnCafe.Attributes["data-featherlight-close-on-click"] = "false";
                     //Label1.Text = "You already registered for Lesson Cafe";
@@ -249,8 +252,10 @@ namespace Skole_Project
             CheckBoxHomework.ClearSelection();
             gus.Attributes["style"] = "display:none;";
             btnCafe.Text = "CheckIn";
+           
             btnCafe.Enabled = false;
             btnCafe.Attributes["style"] = "background-color:none; margin-bottom:10px;";
+            
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
