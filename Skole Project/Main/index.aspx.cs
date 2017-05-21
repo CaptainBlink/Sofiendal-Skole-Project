@@ -37,13 +37,13 @@ namespace Skole_Project
             if (checkExisting != null)
             {
                 btnCafe.Text = "CheckOut";
-                btnText.Text = "Du can ikke check ind i lektiecafen nu";
+                btnText.Text = "Du kan ikke check ind i lektiecafen nu";
                 btnCafe.Attributes["style"] = "background-color: #F44336; margin-bottom:10px;";
             }
             if(checkExisting != null && checkExisting2 != null)
             {
-                btnCafe.Text = "";
-                btnText.Text = "Du can check ind i lektiecafen nu";
+                btnCafe.Text = "CheckIn";
+                btnText.Text = "Du kan check ind i lektiecafen nu";
                 btnCafe.Attributes["style"] = "background-color: none; margin-bottom:10px;";
                 user.Active = false;
                 db.SubmitChanges();
@@ -154,11 +154,11 @@ namespace Skole_Project
         {
             User user = (from c in db.Users where c.Token.Contains(HttpContext.Current.User.Identity.Name) select c).FirstOrDefault();
             var checkExisting = (from c in db.UserDatas where c.Logout.Value.Date.Equals(DateTime.Now.Date) & c.UserID.Equals(user.ID) select c.Login).FirstOrDefault();
-            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting == null && (Convert.ToInt32(DateTime.Today.DayOfWeek) == 7 || Convert.ToInt32(DateTime.Today.DayOfWeek) == 1))
+            if (DateTime.Now.TimeOfDay >= startTime && DateTime.Now.TimeOfDay <= endTime && checkExisting != null && (Convert.ToInt32(DateTime.Today.DayOfWeek) == 6 || Convert.ToInt32(DateTime.Today.DayOfWeek) == 7))
             {
                 if(btnCafe.Text != "CheckOut")
                 {
-                    btnText.Text = "Du can ikke check ind i lektiecafen nu";
+                    btnText.Text = "Du kan ikke check ind i lektiecafen nu";
                     btnCafe.Attributes["style"] = "background-color: #549788; margin-bottom:10px;";
                 }
                 btnCafe.Enabled = true;

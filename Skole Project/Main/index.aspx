@@ -79,13 +79,46 @@
         #popUpHomework{
             border-radius:25px;
         }
-    
+     #btnSubmit {
+    border-radius:15px;
+    padding:0px 10px 0px 10px;
+       -webkit-transition: 1s;
+    transition: 1s;
+}
+#btnCancel {
+    border-radius:15px;
+    padding:0px 10px 0px 10px;
+       -webkit-transition: 1s;
+    transition: 1s;
+}
+
+ #btnSubmit:hover {
+    border-radius:0px;
+    padding:0px 10px 0px 10px;
+     -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+#btnCancel:hover {
+    border-radius:0px;
+    padding:0px 10px 0px 10px;
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+.testee {
+    display:none;
+}
+
 @media screen and (min-width: 200px) and (max-width: 1000px) {
 
   #btnCafe{
  font-size:1em;
 
   }     
+ 
 }
 
     </style>
@@ -141,13 +174,15 @@
                                             <div class="middleGo">
                                             <asp:CustomValidator ID="CustomValidator1" Style="display: none; width: 150px; text-align: center;" ErrorMessage="Please select at least one item." ForeColor="Red" ClientValidationFunction="ValidateCheckBoxList" runat="server" ValidationGroup="Subjects" />
                                             <asp:Button ID="btnSubmit" BackColor="#549788" ForeColor="White" CssClass="btnHomework" runat="server" OnClick="btnSubmit_Click" Text="Submit" ValidationGroup="Subjects" />
-                                            <asp:Button ID="btnCancel" style="margin-left:5px;" BackColor="#F44336" ForeColor="White" CssClass="btnHomework" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
+                                            <asp:Button ID="btnCancel" style="margin-left:5px; margin-bottom:20px;" BackColor="#F44336" ForeColor="White" CssClass="btnHomework" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                             
                             </ContentTemplate>
                         </asp:UpdatePanel>
+
                     </div>
                 </div>
                
@@ -408,7 +443,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="nextweek" class="col-xs-4 col-xs-offset-4" style="margin-bottom: 30px; display: none">
+                <div id="nextweek" class="col-xs-6 col-xs-offset-3" style="margin-bottom: 30px; display: none">
                     <div style="margin-bottom: 10px;">
                         <div id="menu11" style="box-shadow: 1px -1px 0px 0.01px grey, -0.01px 0 0 1px grey; height: 50px; background-color: gray; color: white;" onclick="menuShow11();">
                             <asp:Label ID="day11" Style="margin-left: 10px; margin-top: 5px; float: left; clear: left; position: relative; font-size: large;" runat="server" Text="MANDAG"></asp:Label>
@@ -606,7 +641,7 @@
                 document.getElementById("nextweek").style.display = "none";
             }
             else if(display2 == "none" && display1 == "none"){
-                document.getElementById("currentweek").style.display = "block";
+                document.getElementById("currentweek").style.display = "block";        
                 document.getElementById("lastweek").style.display = "none";
                 document.getElementById("nextweek").style.display = "none";
             }
@@ -865,7 +900,7 @@
             var todayHour = new Date().getHours();
             var todayMin = new Date().getMinutes();
             var todayCafe = new Date().getDay();
-            if ((todayCafe == 7 & todayHour < 24) || (todayCafe == 1 & todayHour < 24)) {
+            if (1 == 1) {
                 setInterval(function () {
                     if (document.getElementById('<%=btnCafe.ClientID%>').disabled == true) {
                         document.getElementById("<%=btnTime.ClientID %>").click();
