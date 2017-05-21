@@ -200,6 +200,7 @@
       <HintPath>..\packages\System.Text.Encodings.Web.4.3.0\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -249,7 +250,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Teacher\Edit.aspx" />
+    <Content Include="Teacher\EditSchedule.aspx" />
     <Content Include="Teacher\overview.aspx" />
+    <Content Include="Teacher\StatisticsClass.aspx" />
     <Content Include="Teacher\Web.config" />
     <Content Include="Css\bootstrap-theme.css.map" />
     <Content Include="Css\bootstrap-theme.min.css.map" />
@@ -316,6 +319,13 @@
     <Compile Include="Teacher\Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\EditSchedule.aspx.cs">
+      <DependentUpon>EditSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teacher\EditSchedule.aspx.designer.cs">
+      <DependentUpon>EditSchedule.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\overview.aspx.cs">
       <DependentUpon>overview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -329,6 +339,13 @@
     </Compile>
     <Compile Include="Teacher\Statistics.aspx.designer.cs">
       <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\StatisticsClass.aspx.cs">
+      <DependentUpon>StatisticsClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teacher\StatisticsClass.aspx.designer.cs">
+      <DependentUpon>StatisticsClass.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

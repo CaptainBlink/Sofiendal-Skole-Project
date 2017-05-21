@@ -67,31 +67,31 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label lblattendance;
         
         /// <summary>
-        /// RadioButton1 control.
+        /// RadioButtonList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
         
         /// <summary>
-        /// RadioButton2 control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// RadioButton3 control.
+        /// arrowleft control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
+        protected global::System.Web.UI.WebControls.ImageButton arrowleft;
         
         /// <summary>
         /// lblpreweek control.
@@ -103,6 +103,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label lblpreweek;
         
         /// <summary>
+        /// arrowright control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton arrowright;
+        
+        /// <summary>
         /// lblnextweek control.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,33 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblnextweek;
+        
+        /// <summary>
+        /// divlastweek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divlastweek;
+        
+        /// <summary>
+        /// btnMenu1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu1;
+        
+        /// <summary>
+        /// menu1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu1;
         
         /// <summary>
         /// day1 control.
@@ -121,6 +157,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day1;
         
         /// <summary>
+        /// arrow1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow1;
+        
+        /// <summary>
         /// date1 control.
         /// </summary>
         /// <remarks>
@@ -128,6 +173,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date1;
+        
+        /// <summary>
+        /// menu_element1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element1;
         
         /// <summary>
         /// Repeater1 control.
@@ -148,6 +202,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
+        /// txtAddSubj1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj1;
+        
+        /// <summary>
+        /// txtAddHomework1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework1;
+        
+        /// <summary>
+        /// btnAddHomework1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework1;
+        
+        /// <summary>
+        /// btnMenu2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu2;
+        
+        /// <summary>
         /// day2 control.
         /// </summary>
         /// <remarks>
@@ -157,6 +247,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day2;
         
         /// <summary>
+        /// arrow2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow2;
+        
+        /// <summary>
         /// date2 control.
         /// </summary>
         /// <remarks>
@@ -164,6 +263,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date2;
+        
+        /// <summary>
+        /// menu_element2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element2;
         
         /// <summary>
         /// Repeater2 control.
@@ -184,6 +292,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
         
         /// <summary>
+        /// txtAddSubj2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj2;
+        
+        /// <summary>
+        /// txtAddHomework2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework2;
+        
+        /// <summary>
+        /// btnAddHomework2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework2;
+        
+        /// <summary>
+        /// btnMenu3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu3;
+        
+        /// <summary>
         /// day3 control.
         /// </summary>
         /// <remarks>
@@ -193,6 +337,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day3;
         
         /// <summary>
+        /// arrow3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow3;
+        
+        /// <summary>
         /// date3 control.
         /// </summary>
         /// <remarks>
@@ -200,6 +353,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date3;
+        
+        /// <summary>
+        /// menu_element3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element3;
         
         /// <summary>
         /// Repeater3 control.
@@ -220,6 +382,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
         
         /// <summary>
+        /// txtAddSubj3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj3;
+        
+        /// <summary>
+        /// txtAddHomework3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework3;
+        
+        /// <summary>
+        /// btnAddHomework3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework3;
+        
+        /// <summary>
+        /// btnMenu4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu4;
+        
+        /// <summary>
         /// day4 control.
         /// </summary>
         /// <remarks>
@@ -229,6 +427,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day4;
         
         /// <summary>
+        /// arrow4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow4;
+        
+        /// <summary>
         /// date4 control.
         /// </summary>
         /// <remarks>
@@ -236,6 +443,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date4;
+        
+        /// <summary>
+        /// menu_element4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element4;
         
         /// <summary>
         /// Repeater4 control.
@@ -256,6 +472,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
         
         /// <summary>
+        /// txtAddSubj4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj4;
+        
+        /// <summary>
+        /// txtAddHomework4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework4;
+        
+        /// <summary>
+        /// btnAddHomework4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework4;
+        
+        /// <summary>
+        /// btnMenu5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu5;
+        
+        /// <summary>
         /// day5 control.
         /// </summary>
         /// <remarks>
@@ -265,6 +517,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day5;
         
         /// <summary>
+        /// arrow5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow5;
+        
+        /// <summary>
         /// date5 control.
         /// </summary>
         /// <remarks>
@@ -272,6 +533,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date5;
+        
+        /// <summary>
+        /// menu_element5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element5;
         
         /// <summary>
         /// Repeater5 control.
@@ -292,6 +562,51 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource6;
         
         /// <summary>
+        /// txtAddSubj5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj5;
+        
+        /// <summary>
+        /// txtAddHomework5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework5;
+        
+        /// <summary>
+        /// btnAddHomework5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework5;
+        
+        /// <summary>
+        /// currentweek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentweek;
+        
+        /// <summary>
+        /// btnMenu6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu6;
+        
+        /// <summary>
         /// day6 control.
         /// </summary>
         /// <remarks>
@@ -301,6 +616,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day6;
         
         /// <summary>
+        /// arrow6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow6;
+        
+        /// <summary>
         /// date6 control.
         /// </summary>
         /// <remarks>
@@ -308,6 +632,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date6;
+        
+        /// <summary>
+        /// menu_element6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element6;
         
         /// <summary>
         /// Repeater6 control.
@@ -328,6 +661,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource7;
         
         /// <summary>
+        /// txtAddSubj6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj6;
+        
+        /// <summary>
+        /// txtAddHomework6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework6;
+        
+        /// <summary>
+        /// btnAddHomework6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework6;
+        
+        /// <summary>
+        /// btnMenu7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu7;
+        
+        /// <summary>
         /// day7 control.
         /// </summary>
         /// <remarks>
@@ -337,6 +706,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day7;
         
         /// <summary>
+        /// arrow7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow7;
+        
+        /// <summary>
         /// date7 control.
         /// </summary>
         /// <remarks>
@@ -344,6 +722,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date7;
+        
+        /// <summary>
+        /// menu_element7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element7;
         
         /// <summary>
         /// Repeater7 control.
@@ -364,6 +751,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource8;
         
         /// <summary>
+        /// txtAddSubj7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj7;
+        
+        /// <summary>
+        /// txtAddHomework7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework7;
+        
+        /// <summary>
+        /// btnAddHomework7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework7;
+        
+        /// <summary>
+        /// btnMenu8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu8;
+        
+        /// <summary>
         /// day8 control.
         /// </summary>
         /// <remarks>
@@ -373,6 +796,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day8;
         
         /// <summary>
+        /// arrow8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow8;
+        
+        /// <summary>
         /// date8 control.
         /// </summary>
         /// <remarks>
@@ -380,6 +812,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date8;
+        
+        /// <summary>
+        /// menu_element8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element8;
         
         /// <summary>
         /// Repeater8 control.
@@ -400,6 +841,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource9;
         
         /// <summary>
+        /// txtAddSubj8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj8;
+        
+        /// <summary>
+        /// txtAddHomework8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework8;
+        
+        /// <summary>
+        /// btnAddHomework8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework8;
+        
+        /// <summary>
+        /// btnMenu9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu9;
+        
+        /// <summary>
         /// day9 control.
         /// </summary>
         /// <remarks>
@@ -409,6 +886,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day9;
         
         /// <summary>
+        /// arrow9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow9;
+        
+        /// <summary>
         /// date9 control.
         /// </summary>
         /// <remarks>
@@ -416,6 +902,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date9;
+        
+        /// <summary>
+        /// menu_element9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element9;
         
         /// <summary>
         /// Repeater9 control.
@@ -436,6 +931,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource10;
         
         /// <summary>
+        /// txtAddSubj9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj9;
+        
+        /// <summary>
+        /// txtAddHomework9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework9;
+        
+        /// <summary>
+        /// btnAddHomework9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework9;
+        
+        /// <summary>
+        /// btnMenu10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu10;
+        
+        /// <summary>
         /// day10 control.
         /// </summary>
         /// <remarks>
@@ -445,6 +976,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day10;
         
         /// <summary>
+        /// arrow10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow10;
+        
+        /// <summary>
         /// date10 control.
         /// </summary>
         /// <remarks>
@@ -452,6 +992,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date10;
+        
+        /// <summary>
+        /// menu_element10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element10;
         
         /// <summary>
         /// Repeater10 control.
@@ -472,6 +1021,51 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource11;
         
         /// <summary>
+        /// txtAddSubj10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj10;
+        
+        /// <summary>
+        /// txtAddHomework10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework10;
+        
+        /// <summary>
+        /// btnAddHomework10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework10;
+        
+        /// <summary>
+        /// divnextweek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divnextweek;
+        
+        /// <summary>
+        /// btnMenu11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu11;
+        
+        /// <summary>
         /// day11 control.
         /// </summary>
         /// <remarks>
@@ -481,6 +1075,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day11;
         
         /// <summary>
+        /// arrow11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow11;
+        
+        /// <summary>
         /// date11 control.
         /// </summary>
         /// <remarks>
@@ -488,6 +1091,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date11;
+        
+        /// <summary>
+        /// menu_element11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element11;
         
         /// <summary>
         /// Repeater11 control.
@@ -508,6 +1120,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource12;
         
         /// <summary>
+        /// txtAddSubj11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj11;
+        
+        /// <summary>
+        /// txtAddHomework11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework11;
+        
+        /// <summary>
+        /// btnAddHomework11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework11;
+        
+        /// <summary>
+        /// btnMenu12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu12;
+        
+        /// <summary>
         /// day12 control.
         /// </summary>
         /// <remarks>
@@ -517,6 +1165,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day12;
         
         /// <summary>
+        /// arrow12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow12;
+        
+        /// <summary>
         /// date12 control.
         /// </summary>
         /// <remarks>
@@ -524,6 +1181,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date12;
+        
+        /// <summary>
+        /// menu_element12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element12;
         
         /// <summary>
         /// Repeater12 control.
@@ -544,6 +1210,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource13;
         
         /// <summary>
+        /// txtAddSubj12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj12;
+        
+        /// <summary>
+        /// txtAddHomework12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework12;
+        
+        /// <summary>
+        /// btnAddHomework12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework12;
+        
+        /// <summary>
+        /// btnMenu13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu13;
+        
+        /// <summary>
         /// day13 control.
         /// </summary>
         /// <remarks>
@@ -553,6 +1255,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day13;
         
         /// <summary>
+        /// arrow13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow13;
+        
+        /// <summary>
         /// date13 control.
         /// </summary>
         /// <remarks>
@@ -560,6 +1271,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date13;
+        
+        /// <summary>
+        /// menu_element13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element13;
         
         /// <summary>
         /// Repeater13 control.
@@ -580,6 +1300,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource14;
         
         /// <summary>
+        /// txtAddSubj13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj13;
+        
+        /// <summary>
+        /// txtAddHomework13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework13;
+        
+        /// <summary>
+        /// btnAddHomework13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework13;
+        
+        /// <summary>
+        /// btnMenu14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu14;
+        
+        /// <summary>
         /// day14 control.
         /// </summary>
         /// <remarks>
@@ -589,6 +1345,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day14;
         
         /// <summary>
+        /// arrow14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow14;
+        
+        /// <summary>
         /// date14 control.
         /// </summary>
         /// <remarks>
@@ -596,6 +1361,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date14;
+        
+        /// <summary>
+        /// menu_element14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element14;
         
         /// <summary>
         /// Repeater14 control.
@@ -616,6 +1390,42 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource15;
         
         /// <summary>
+        /// txtAddSubj14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj14;
+        
+        /// <summary>
+        /// txtAddHomework14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework14;
+        
+        /// <summary>
+        /// btnAddHomework14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework14;
+        
+        /// <summary>
+        /// btnMenu15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu15;
+        
+        /// <summary>
         /// day15 control.
         /// </summary>
         /// <remarks>
@@ -625,6 +1435,15 @@ namespace Skole_Project.Teacher {
         protected global::System.Web.UI.WebControls.Label day15;
         
         /// <summary>
+        /// arrow15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage arrow15;
+        
+        /// <summary>
         /// date15 control.
         /// </summary>
         /// <remarks>
@@ -632,6 +1451,15 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label date15;
+        
+        /// <summary>
+        /// menu_element15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_element15;
         
         /// <summary>
         /// Repeater15 control.
@@ -650,5 +1478,32 @@ namespace Skole_Project.Teacher {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource16;
+        
+        /// <summary>
+        /// txtAddSubj15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSubj15;
+        
+        /// <summary>
+        /// txtAddHomework15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHomework15;
+        
+        /// <summary>
+        /// btnAddHomework15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddHomework15;
     }
 }

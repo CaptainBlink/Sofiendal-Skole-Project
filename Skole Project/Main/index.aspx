@@ -586,7 +586,7 @@
                                 <ItemTemplate>
                                     <asp:Label ID="Label12" CssClass="labltest" runat="server" Text='<%# Regex.Split(Eval("Tuesday").ToString(),";")[0] %>' Font-Bold="True"></asp:Label>
                                     <br />
-                                    <asp:Label ID="Label13" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Tuesday").ToString(),";")[1]) %>'></asp:Label>
+                                    <asp:Label ID="Label13" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Tuesday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Tuesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
@@ -595,7 +595,7 @@
                                 <ItemTemplate>
                                     <asp:Label ID="Label6" CssClass="labltest" runat="server" Text='<%# Regex.Split(Eval("Wednesday").ToString(),";")[0] %>'></asp:Label>
                                     <br />
-                                    <asp:Label ID="Label7" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Wednesday").ToString(),";")[1]) %>'></asp:Label>
+                                    <asp:Label ID="Label7" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Wednesday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Wednesday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
@@ -604,7 +604,7 @@
                                 <ItemTemplate>
                                     <asp:Label ID="Label8" CssClass="labltest" runat="server" Text='<%# Regex.Split(Eval("Thursday").ToString(),";")[0] %>'></asp:Label>
                                     <br />
-                                    <asp:Label ID="Label9" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Thursday").ToString(),";")[1]) %>'></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Thursday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Thursday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
@@ -613,7 +613,7 @@
                                 <ItemTemplate>
                                     <asp:Label ID="Label10" CssClass="labltest" runat="server" Text='<%# Regex.Split(Eval("Friday").ToString(),";")[0] %>'></asp:Label>
                                     <br />
-                                    <asp:Label ID="Label11" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Monday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Friday").ToString(),";")[1]) %>'></asp:Label>
+                                    <asp:Label ID="Label11" runat="server" CssClass="lablsubj" Style='<%# ProcessMyDataItem1(Regex.Split(Eval("Friday").ToString(),";")[1]) %>' Text='<%# ProcessMyDataItem(Regex.Split(Eval("Friday").ToString(),";")[1]) %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="test" />
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="50px" Font-Size="X-Large" Width="170px" ForeColor="White" BackColor="gray"></HeaderStyle>
